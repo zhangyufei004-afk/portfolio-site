@@ -13,6 +13,28 @@
 
 本仓库已经把**构建产物一并提交**（`dist/` 目录），所以部署时**不需要任何构建步骤**。
 
+### 第 0 步：把本仓库推到 GitHub
+
+本地仓库已经初始化并完成首次提交（分支 `main`）。推到 GitHub 上：
+
+1. 在 https://github.com/new 新建一个**空仓库**，命名建议 `portfolio-site`。
+   **不要**勾选 "Add a README / .gitignore / license" —— 保持完全空白，否则会产生冲突。
+
+2. 在仓库根目录执行（把 `你的用户名` 换成实际用户名）：
+
+   ```powershell
+   git remote add origin https://github.com/你的用户名/portfolio-site.git
+   git push -u origin main
+   ```
+
+3. 第一次推送会弹出登录窗口。推荐用 **Git Credential Manager**（Windows 版 Git 自带）
+   或 **Personal Access Token**（GitHub → Settings → Developer settings →
+   Personal access tokens，勾选 `repo` 权限）作为密码。
+
+   > 注意：**GitHub 从 2021 年起不再接受账号密码推送**，必须用 token 或 GCM。
+
+推送完成后，仓库应该能看到 `dist/`、`content/`、`build.py` 等目录。
+
 ### 腾讯云 EdgeOne Pages（推荐，国内访问快）
 
 1. 打开 [EdgeOne Pages 控制台](https://edgeone.cloud.tencent.com/pages)，用腾讯云账号登录
