@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>塞尔达式 2D 地牢「Delver」 · Yufei Zhang</title>
+<meta name="description" content="在自制的 Delver / Metroid 编辑器里做的 2D 地牢关卡。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。">
+<meta name="author" content="张宇飞（Yufei Zhang）">
+<meta name="theme-color" content="#0f1115">
+<meta property="og:title" content="塞尔达式 2D 地牢「Delver」 · Yufei Zhang">
+<meta property="og:description" content="在自制的 Delver / Metroid 编辑器里做的 2D 地牢关卡。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。">
+<meta property="og:type" content="website">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body class="page-project">
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">Yufei Zhang</span>
+    </a>
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav">
+      <span class="navtoggle__bar" aria-hidden="true"></span>
+      <span class="navtoggle__bar" aria-hidden="true"></span>
+      <span class="sr-only">展开导航</span>
+    </button>
+    <nav class="sitenav" id="sitenav" aria-label="主导航">
+        <a href="../../index.html">首页</a>
+        <a href="../../works.html">作品</a>
+        <a href="../../about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="project" style="--accent: #e0c25e">
+
+  <header class="hero hero--project">
+    <div class="wrap">
+      <p class="hero__kicker">2026 · 项目</p>
+      <h1 class="hero__title">塞尔达式 2D 地牢「Delver」</h1>
+      <p class="hero__sub">用抓钩与推块讲一道空间谜题，而不是用敌人</p>
+      <p class="hero__lead">在自制的 Delver / Metroid 编辑器里做的 2D 地牢关卡。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。</p>
+      <div class="hero__tags"><span class="tag">关卡设计</span><span class="tag">2D 地牢</span><span class="tag">空间解谜</span><span class="tag">抓钩</span><span class="tag">节奏控制</span><span class="tag">单人项目</span></div>
+      <dl class="facts">
+<div class="fact"><dt>担任</dt><dd>关卡设计（单人）</dd></div>
+<div class="fact"><dt>团队</dt><dd>个人项目</dd></div>
+<div class="fact"><dt>周期</dt><dd>2026.03 – 2026.06</dd></div>
+<div class="fact"><dt>引擎 / 工具</dt><dd>Unity 自研 Delver / Metroid 关卡编辑器</dd></div>
+<div class="fact"><dt>类型</dt><dd>2D 地牢关卡设计</dd></div>
+<div class="fact"><dt>状态</dt><dd>已完成课程作业</dd></div>
+      </dl>
+  <figure class="hero__cover">
+    <img src="../../assets/img/delver2d/cover.jpg" alt="塞尔达式 2D 地牢「Delver」 封面" loading="lazy" decoding="async">
+  </figure>
+    </div>
+  </header>
+
+  <div class="wrap project__layout">
+    <div class="project__main">
+<section class="section" id="overview">
+  <header class="section__head"><p class="section__kicker">Overview</p><h2 class="section__title">项目概述</h2></header>
+  <div class="section__body">
+<p>
+  这是用课程自研编辑器（Unity 的 Delver / Metroid 关卡编辑器）制作的 2D 地牢关卡。
+  它在设定上<b>不是游戏的第一座地牢</b>，而是<b>抓钩（Grappler）首次登场</b>的地方：
+  玩家应该在没有抓钩的状态下走过大约三分之一的关卡，然后拿到它，之后面对几道难度递增的抓钩谜题。
+</p>
+
+<h3 id="体验目标">体验目标</h3>
+<p>
+  我想让玩家通过探索与空间解谜获得<b>成就感</b>——先用仔细的探索克服最初的"人为难度"感，
+  最终过渡到顺畅、满足的推进节奏。
+</p>
+
+<h3 id="电梯陈述">电梯陈述</h3>
+<p>
+  一关经典塞尔达式的地牢探索关。核心体验依赖<b>策略性探索</b>——
+  用有限的资源（钥匙）和独特的位移机制推进，而不是用敌人把玩家淹没。
+  它提供公平且有趣的解谜挑战，鼓励玩家在脑中先画出空间地图。
+</p>
+
+<h3 id="主题与场所">主题与场所</h3>
+<p>
+  经典复古地牢 / 神庙。环境由彼此区分的房间构成，并用环境危险（岩浆）来封路，
+  逼迫玩家用特定的位移手段绕过。
+</p>
+
+<h3 id="用到的机制">用到的机制</h3>
+<ul>
+  <li>
+    <b>抓钩 + 可推方块</b>（核心谜题机制）：玩家会遇到<b>无法从反方向推动</b>的方块，
+    必须自己发现"可以用抓钩穿过这些方块"才能推进。
+  </li>
+  <li>
+    <b>钥匙与锁门</b>：大量用于控制节奏与推进。钥匙散落在关卡各处（包括像第三间房这样的早期区域），
+    却用来打开路径远端的门。
+  </li>
+  <li>
+    <b>传送器</b>：作为位移工具，用来绕开岩浆这类环境危险，并连接地图的不同区域。
+  </li>
+</ul>
+
+<figure class="shot">
+  <img src="../../assets/img/delver2d/macro.jpg" alt="Delver 关卡的 Macro Chart" loading="lazy" decoding="async">
+  <figcaption>Macro Chart：把层级、时长、情绪、机制与敌人需求排成一行——先定节奏再定布局。</figcaption>
+</figure>
+  </div>
+</section>
+<section class="section" id="iteration">
+  <header class="section__head"><p class="section__kicker">Blockout → Final</p><h2 class="section__title">四个阶段的迭代</h2></header>
+  <div class="section__body">
+<p>
+  这一关经历 Blockout / Alpha / Beta / Final 四个阶段，每一轮 playtest 都改变了我对"问题在哪"的判断。
+</p>
+
+<h3 id="Blockout--迷路回头路与敌人密度">Blockout · 迷路、回头路与敌人密度</h3>
+<div class="gallery gallery--2">
+  <figure class="shot">
+    <img src="../../assets/img/delver2d/blockout-a.jpg" alt="Blockout 阶段的关卡布局" loading="lazy" decoding="async">
+    <figcaption>Blockout：把玩法重心从战斗转向环境位移与空间解谜</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../../assets/img/delver2d/blockout-b.jpg" alt="Blockout 阶段的房间与传送器分布" loading="lazy" decoding="async">
+    <figcaption>围绕抓钩与推块建立协同关系，玩家必须与地形互动才能推进</figcaption>
+  </figure>
+</div>
+<p>
+  Blockout 阶段做的关键决定，是把体验从<b>重战斗</b>转向<b>环境位移与空间解谜</b>，
+  并把关卡设计围绕"抓钩 + 推块"的协同建立起来。
+</p>
+<p>
+  <b>反馈</b>：抓钩机制与以地形为核心的谜题被认为是极有创意且吸引人的，
+  但关卡存在严重的<b>导航与引导问题</b>。最关键的一条是<b>令人沮丧的回头路</b>：
+  玩家常常走到关卡末端才发现自己漏了第三间房里的关键钥匙，只能把整张地图再走一遍。
+  此外多名测试者表示<b>因为缺少明确方向而"迷路"</b>，
+  这部分被错放的传送器和需要非直觉解法的谜题（比如用抓钩穿过方块）进一步放大了。
+</p>
+<p>
+  我也学到<b>敌人密度过高</b>会让关卡显得"人为地难"。
+</p>
+
+<h3 id="Alpha--挪动钥匙房--编号锚点">Alpha · 挪动钥匙房 + 编号锚点</h3>
+<figure class="shot">
+  <img src="../../assets/img/delver2d/alpha-a.jpg" alt="Alpha 阶段的关卡布局" loading="lazy" decoding="async">
+  <figcaption>Alpha：钥匙房被移动到抓钩获取点旁边，并加入编号标记</figcaption>
+</figure>
+<p>
+  Alpha 阶段我做了一个策略性决定：<b>把钥匙房从第三间房挪到紧邻抓钩获取点的位置</b>。
+  这个改动的目的就是解决之前反馈的"过度回头路"，确保玩家在探索地图时能自然地发现目标。
+  此外我在整张地图上加入了<b>数字编号系统</b>，用清晰的视觉标记辅助导航，防止玩家在游玩中迷路。
+</p>
+<p>
+  <b>反馈</b>：新的编号与房间布局让大多数玩家觉得推进"非常清晰"。
+  传送门方块谜题与"用抓钩触发压力板"这类创意用法获得好评；
+  但测试者仍然觉得敌人太多，并且明确指出 <b>Boss 房像一个"敌人堆砌场（enemy dump）"</b>，
+  分散了对谜题的注意力。
+</p>
+<p>
+  另一个学到的点是：某些事件——比如<b>带着钥匙的骷髅在玩家身后生成</b>——
+  需要更好的视觉或音频提示，否则玩家很容易错过。
+</p>
+
+<h3 id="Beta--削减敌人但暴露了卡死风险">Beta · 削减敌人，但暴露了卡死风险</h3>
+<div class="gallery gallery--2">
+  <figure class="shot">
+    <img src="../../assets/img/delver2d/beta-before.jpg" alt="Beta 之前的关卡布局" loading="lazy" decoding="async">
+    <figcaption>Beta 之前</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../../assets/img/delver2d/beta-after.jpg" alt="Beta 之后的关卡布局" loading="lazy" decoding="async">
+    <figcaption>Beta 之后：削减敌人，用推块与压力杆组合替代刷怪</figcaption>
+  </figure>
+</div>
+<p>
+  Beta 阶段的重点是针对"敌人堆砌"的反馈，<b>平衡战斗与解谜的配比</b>：
+</p>
+<ul>
+  <li>大幅减少多个区域的敌人数量。例如在第二间房移除了两个生成的怪物，改成新的<b>推块 + 压力杆组合</b>，把重心放在战术位移而不是纯战斗上。</li>
+  <li>重置了后续几个阶段，把普通门替换成<b>明确需要清光敌人才开锁</b>的房间锁。</li>
+  <li>在减少怪物总量的同时，<b>提高剩余遭遇的质量与威胁度</b>，确保玩法依然有挑战且有目的性。</li>
+</ul>
+<p>
+  <b>反馈</b>：这一轮暴露了关卡的技术稳定性与逻辑流问题，导致部分测试者<b>没能完整通关</b>。
+  有玩家反馈关卡看起来"不完整或没更新"，怀疑是云上传过程中的同步问题。
+</p>
+<p>
+  最重要的结论是关卡推进过程中存在<b>很高的卡死（softlock）风险</b>：
+  测试者被困在<b>有锁门但没有钥匙</b>的房间里，同时又无法回到之前的区域去找钥匙。
+  另外，数字标记本意是提供引导，实际上<b>并不直观</b>——玩家对它的具体含义和用途感到困惑。
+</p>
+<blockquote>
+  <p>这轮结果明确了一件事：必须保证在关键目标达成之前路径始终是开放的，并且导航系统需要更清晰的视觉提示。</p>
+</blockquote>
+
+<h3 id="Final--把逻辑安全放在复杂度之上">Final · 把"逻辑安全"放在复杂度之上</h3>
+<div class="gallery gallery--2">
+  <figure class="shot">
+    <img src="../../assets/img/delver2d/final-before.jpg" alt="Final 之前的关卡布局" loading="lazy" decoding="async">
+    <figcaption>Final 之前</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../../assets/img/delver2d/final-after.jpg" alt="Final 之后的关卡布局" loading="lazy" decoding="async">
+    <figcaption>Final 之后：重构返回路径，保证永远不会被卡住</figcaption>
+  </figure>
+</div>
+<p>
+  最终阶段我把重心从"机制能用"转到"体验被打磨"：
+</p>
+<ul>
+  <li>针对 Beta 暴露的卡死风险，我对<b>所有钥匙与门的位置做了一次完整审查</b>。</li>
+  <li>核心决定是<b>把"逻辑安全"的优先级放在复杂度之上</b>：重构返回路径，
+    确保即使玩家漏掉了某个道具，也永远不会被困住、总有路可以回头。</li>
+  <li>改进编号引导系统。我的意图不只是给房间贴标签，而是把这些标记当成
+    <b>"视觉锚点"</b>来澄清解谜顺序。</li>
+  <li>继续处理"敌人堆砌"的通病：用有意图的、更高质量的遭遇替换杂乱刷怪。
+    例如在"压力杆"这类房间里，我有策略地布置敌人来配合谜题的节奏，
+    让它们成为有意义的关卡障碍，而不是挫败感的来源。</li>
+</ul>
+<p>
+  这个过程让我明白：<b>设计师的工作是保护玩家的心流，和挑战玩家的心流同样重要。</b>
+</p>
+  </div>
+</section>
+<section class="section" id="takeaways">
+  <header class="section__head"><p class="section__kicker">Takeaways</p><h2 class="section__title">总结</h2></header>
+  <div class="section__body">
+<h3 id="再巧妙的机制也次于一套万无一失的推进系统">再巧妙的机制也次于一套万无一失的推进系统</h3>
+<p>
+  这个项目显著加深了我对"创意机制"与"底层关卡逻辑"之间平衡的理解。
+  我学到的是：即使是最有想象力的玩法——比如抓钩与推块谜题的协同——
+  也<b>次于一条不会出错的推进路径</b>；没有合理的钥匙与路径配比，
+  一次卡死就足以毁掉整段体验。
+</p>
+
+<h3 id="引导是环境的责任而不只是-UI-的任务">引导是环境的责任，而不只是 UI 的任务</h3>
+<p>
+  标记能提供帮助，但真正的直觉来自<b>让关卡几何本身对玩家说话</b>。
+  这也是为什么我在最终版里把编号从"标签"重新定位成"视觉锚点"。
+</p>
+
+<h3 id="设计师的职责是编排玩家的情绪节奏">设计师的职责是编排玩家的情绪节奏</h3>
+<p>
+  通过从"敌人堆砌"转向有意图的战斗布置，我发现设计师真正在做的事情是
+  <b>策划玩家的情绪节奏</b>，让每一个挑战都显得"应得"而不是"恼人"。
+</p>
+  </div>
+</section>
+    </div>
+  <nav class="toc" aria-label="本页目录">
+    <p class="toc__title">本页目录</p>
+    <ol class="toc__list">
+        <li><a href="#overview">项目概述</a></li>
+        <li><a href="#iteration">四个阶段的迭代</a></li>
+        <li><a href="#takeaways">总结</a></li>
+    </ol>
+  </nav>
+
+  </div>
+
+  <div class="wrap">
+    <p class="backlink"><a href="../../works.html">← 返回作品列表</a></p>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__name">张宇飞（Yufei Zhang）</p>
+    <p class="footer__line">游戏程序 · 关卡设计 · AI 系统</p>
+    <p class="footer__line"><a href="mailto:2485357205@qq.com">2485357205@qq.com</a></p>
+    <p class="footer__line">Discord：batcat_773</p>
+    <p class="footer__note">本站为纯静态站点，不加载任何外部资源，可离线打开。</p>
+    <p class="footer__copy">© 2026 Yufei Zhang</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

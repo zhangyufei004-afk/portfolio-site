@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{page_title}}</title>
+<meta name="description" content="{{meta_description}}">
+<meta name="author" content="{{author}}">
+<meta name="theme-color" content="#0f1115">
+<meta property="og:title" content="{{page_title}}">
+<meta property="og:description" content="{{meta_description}}">
+<meta property="og:type" content="website">
+<link rel="icon" href="{{asset}}/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{asset}}/css/site.css">
+</head>
+<body class="{{body_class}}">
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="{{home}}">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">{{short_name}}</span>
+    </a>
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav">
+      <span class="navtoggle__bar" aria-hidden="true"></span>
+      <span class="navtoggle__bar" aria-hidden="true"></span>
+      <span class="sr-only">展开导航</span>
+    </button>
+    <nav class="sitenav" id="sitenav" aria-label="主导航">
+{{nav}}
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+{{content}}
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__name">{{author}}</p>
+    <p class="footer__line">{{tagline}}</p>
+    <p class="footer__line"><a href="mailto:{{email}}">{{email}}</a></p>
+    <p class="footer__line">Discord：{{discord}}</p>
+    <p class="footer__note">{{footer_note}}</p>
+    <p class="footer__copy">© {{year}} {{short_name}}</p>
+  </div>
+</footer>
+
+<script src="{{asset}}/js/site.js" defer></script>
+</body>
+</html>

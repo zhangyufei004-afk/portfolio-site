@@ -1,0 +1,27 @@
+<article class="project" style="--accent: {{project.accent}}">
+
+  <header class="hero hero--project">
+    <div class="wrap">
+      <p class="hero__kicker">{{project.year}} · 项目</p>
+      <h1 class="hero__title">{{project.title}}</h1>
+      <p class="hero__sub">{{project.subtitle}}</p>
+      <p class="hero__lead">{{project.summary}}</p>
+      <div class="hero__tags">{{project.tags}}</div>
+      <dl class="facts">
+{{project.facts}}
+      </dl>{{project.cover}}
+    </div>
+  </header>
+
+  <div class="wrap project__layout">
+    <div class="project__main">
+{{project.sections}}
+    </div>
+{{project.toc}}
+  </div>
+
+  <div class="wrap">
+    <p class="backlink"><a href="{{project.backlink}}">← 返回作品列表</a></p>
+  </div>
+
+</article>

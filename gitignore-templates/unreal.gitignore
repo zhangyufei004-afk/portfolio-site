@@ -1,0 +1,59 @@
+# ============================================================================
+#  Unreal Engine 项目的 .gitignore —— 复制到仓库根目录，文件名改成 .gitignore
+#  用途：UE5_Combat，以及将来移植 Stormhaven 的精选仓库
+#
+#  为什么需要它：Unreal 的 Binaries/ Intermediate/ Saved/ DerivedDataCache/
+#  全是可再生的中间产物，UE5 工程不带这些大约几十 MB，
+#  带上就可能是几个 GB —— 这是 UE 项目「推不上 GitHub」的最常见原因。
+# ============================================================================
+
+# ---- 编译产物（绝对不要提交）----
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# ---- 各 IDE 的工程文件（由引擎生成）----
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.xcodeproj/
+*.xcworkspace/
+.vs/
+.idea/
+.vscode/
+
+# ---- 打包结果 ----
+StagedBuilds/
+PackagedBuilds/
+*.pak
+*.ucas
+*.utoc
+
+# ---- 插件与临时文件 ----
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
+*.tmp
+
+# ---- 系统文件 ----
+.DS_Store
+Thumbs.db
+
+# ============================================================================
+#  你要提交的内容通常只有：
+#      Config/
+#      Content/          （只放你自己做的资产，客户提供的资产先确认授权）
+#      Source/           （如果有 C++）
+#      *.uproject
+#      README.md
+#      .gitignore
+#
+#  如果 Content/ 超过 100MB，建议用 Git LFS：
+#      git lfs install
+#      git lfs track "*.uasset" "*.umap" "*.fbx" "*.png" "*.wav"
+#      git add .gitattributes
+# ============================================================================

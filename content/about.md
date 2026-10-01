@@ -1,0 +1,293 @@
+---
+heading: 关于我
+body_class: page-about
+---
+
+<section class="section section--plain">
+  <p class="lede">
+    我是张宇飞（Yufei Zhang），坎特伯雷大学产品设计学院应用沉浸式游戏设计专业本科生。
+    我的工作方式偏向"先把机制跑通，再用 playtest 把它磨成立"——
+    我不太相信还没被测试过的设计判断，也不太相信只靠调参数就能救回来的关卡结构。
+  </p>
+  <p>
+    我希望以<b>游戏策划</b>身份参与系统、玩法与战斗体验的设计，并利用 Unity / C# 的实现能力
+    快速验证方案、定位问题和推进迭代。核心方向是：
+    <b>系统策划</b>（循环、资源、商店、收集）、<b>玩法策划</b>（原型、操作、难度、反馈）、
+    <b>战斗体验</b>（节奏、AI、受击、可读性）。
+  </p>
+
+  <div class="links">
+    <a class="btn btn--primary" href="assets/docs/zhang-yufei-design-portfolio.pdf" download>
+      游戏策划作品集（PDF） <span class="btn__hint">↓ 3.8 MB</span>
+    </a>
+    <a class="btn" href="assets/docs/zhang-yufei-resume.pdf" download>
+      简历（PDF） <span class="btn__hint">↓ 195 KB</span>
+    </a>
+    <a class="btn" href="mailto:2485357205@qq.com">2485357205@qq.com</a>
+  </div>
+</section>
+
+<section class="section section--plain">
+  <header class="section__head">
+    <p class="section__kicker">意向</p>
+    <h2 class="section__title">求职意向</h2>
+  </header>
+  <div class="stats">
+    <div class="stat"><span class="stat__num">策划 / 程序</span><span class="stat__label">求职方向</span></div>
+    <div class="stat"><span class="stat__num">北京</span><span class="stat__label">意向城市</span></div>
+    <div class="stat"><span class="stat__num">2027.07</span><span class="stat__label">预计毕业</span></div>
+  </div>
+  <p class="dim" style="margin-top:1.4em">
+    如果你在招游戏策划或游戏程序研发方向的实习 / 校招岗位，欢迎直接邮件联系。
+  </p>
+</section>
+
+<section class="section section--plain">
+  <header class="section__head">
+    <p class="section__kicker">教育</p>
+    <h2 class="section__title">教育背景</h2>
+  </header>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>学校</th><th>专业</th><th>学历</th><th>时间</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>坎特伯雷大学</b><br><span class="dim">University of Canterbury</span></td>
+        <td>应用沉浸式游戏设计<br><span class="dim">Applied Immersive Game Design · 产品设计学院</span></td>
+        <td>本科（全日制）</td>
+        <td>2023.03 – 2027.07</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="section section--plain">
+  <header class="section__head">
+    <p class="section__kicker">经历</p>
+    <h2 class="section__title">项目经历</h2>
+  </header>
+
+  <div class="exp">
+    <div class="exp__head">
+      <h3>《INSTANCE 43》 · Unity 2D 俯视角动作 Demo</h3>
+      <span class="exp__meta">个人项目 · 2026 · 独立完成全流程 · 战斗系统策划 / 玩法原型 / 内容实现</span>
+    </div>
+    <ul>
+      <li>
+        <b>战斗系统设计</b>：主导角色战斗系统设计，包括<b>攻击逻辑、技能槽位与成长天赋树</b>等完整机制；
+        核心机制是把一次攻击拆成"部署 + 回收"两个阶段，让玩家持续管理战场上的锚点位置。
+      </li>
+      <li>
+        <b>敌人 AI 设计</b>：设计多套差异化的敌人 AI 行为逻辑，在同一套行为框架下产出多个变体与攻击表现。
+      </li>
+      <li>
+        <b>系统与界面</b>：设计并实现实时战斗 HUD（生命 / 能量 / 技能槽位 / 目标提示）、
+        技能配置界面、成长树与层间奖励路线选择，以及叙事对话流程。
+      </li>
+      <li>
+        <b>独立开发</b>：独立完成 2D 俯视角动作 Demo 的全流程开发，使用 Codex 与 PixelLab 作为辅助工具。
+      </li>
+    </ul>
+    <p class="exp__link">
+      <a href="projects/instance43/">查看项目详情 →</a> ·
+      <a href="https://github.com/zhangyufei004-afk/Instance-43" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </p>
+  </div>
+
+  <div class="exp">
+    <div class="exp__head">
+      <h3>《惬意钓鱼 / Cozy Fishing》 · Unity 休闲模拟游戏</h3>
+      <span class="exp__meta">校企合作项目 · 2025.07 – 2025.10 · 核心系统程序员</span>
+    </div>
+    <ul>
+      <li>
+        <b>核心系统开发</b>：用 C# 独立设计并实现完整的<b>商店交易系统</b>、<b>全局游戏设置系统</b>
+        以及<b>高扩展性的背包 / 库存管理系统</b>，完成底层数据结构设计与 UI 逻辑编写。
+      </li>
+      <li>
+        <b>UI 架构与控制</b>：负责游戏中绝大部分 UI 界面的搭建（主菜单、商店、背包面板等），
+        并独立编写对应的后端控制器逻辑，实现整套 UI 的输入响应与状态管理。
+      </li>
+      <li>
+        <b>玩法机制迭代</b>：设计 <b>DDR 式钓鱼小游戏原型</b>（以节奏输入承载轻量化操作），
+        原型完成后交由组员精细打磨；同时负责角色颜色自定义的设计与实现。
+      </li>
+      <li>
+        <b>技术攻坚适配</b>：针对 PC 与手柄双重输入重构输入底层，解决外设切换时的逻辑冲突；
+        通过重构射线检测与碰撞校验逻辑，<b>彻底解决了玩家可以穿透地面向地下水体抛竿的物理 Bug</b>。
+      </li>
+      <li>
+        <b>版本控制协作</b>：在团队 Git Flow 工作流下严格执行代码规范，
+        完成功能分支开发、代码评审与冲突合并，保证稳定版每周按时交付。
+      </li>
+    </ul>
+    <p class="exp__link">
+      <a href="projects/cozy/">查看项目详情 →</a> ·
+      <a href="https://github.com/zhangyufei004-afk/Cozy-Fishing" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://www.bilibili.com/video/BV19z8t65ED8/" target="_blank" rel="noopener noreferrer">演示视频（Bilibili）↗</a>
+    </p>
+  </div>
+
+  <div class="exp">
+    <div class="exp__head">
+      <h3>《风暴避难所 / Stormhaven》 · 虚幻引擎 5 第一人称探索与 FPS 游戏</h3>
+      <span class="exp__meta">校企合作项目 · 2024.06 – 2024.10 · Combat Designer（战斗设计 / AI 与 UI 蓝图）</span>
+    </div>
+    <ul>
+      <li>
+        <b>系统设计平衡</b>：负责基于虚幻引擎 5 开发的射击游戏战斗系统的设计、数值平衡与调优；
+        熟练运用 UE5 蓝图系统完成核心玩法机制与战斗功能的脚本编写与落地。
+      </li>
+      <li>
+        <b>交互 UI 开发</b>：利用蓝图系统独立开发弹药计数控件，编写支持玩家手动检查弹药剩余量的交互逻辑，
+        并通过<b>绿、黄、红三色动态反馈</b>当前弹药状态。
+      </li>
+      <li>
+        <b>受击反馈重构</b>：重构玩家生命值的视觉反馈机制，实现<b>全屏动态血痕与暗角系统</b>，
+        使画面随受击伤害加深而实时红化，取代传统 UI 血条，强化 FPS 玩法的恐怖与沉浸氛围。
+      </li>
+      <li>
+        <b>怪物 AI 拓展</b>：专注敌方 AI 行为逻辑、<b>行为树与黑板配置</b>；
+        在引擎内用蓝图编写并优化怪物的多样化攻击模式与底层行为逻辑，提升关卡敌人的 AI 丰富度与战斗博弈深度。
+      </li>
+    </ul>
+    <p class="exp__link"><a href="projects/stormhaven/">查看项目详情 →</a></p>
+  </div>
+
+  <div class="exp">
+    <div class="exp__head">
+      <h3>《VR Escape Room》 · Unity / VR 密室逃脱</h3>
+      <span class="exp__meta">团队项目 · 2025.02 – 2025.06 · VR 游戏设计师兼核心开发者</span>
+    </div>
+    <ul>
+      <li>
+        <b>沉浸交互开发</b>：用 Unity 与 C# 开发互动式 VR 游戏，构建高沉浸感的虚拟环境与符合直觉的 VR 手势交互。
+      </li>
+      <li>
+        <b>3D 资产制作</b>：用 Blender 与 Autodesk Fusion 完成 3D 资产的建模、材质处理与动画制作，并无缝导入引擎。
+      </li>
+      <li>
+        <b>流程逻辑管理</b>：全权负责关卡解谜逻辑、UX 优化以及游戏主流程的<b>状态机控制</b>。
+        用显式状态机而不是散落在各物件里的 <code>Update()</code> 来管理"当前处于哪个阶段、哪些交互应该可用"，
+        避免玩家同时触发多个交互或在谜题未完成时越区导致的流程冲突。
+      </li>
+      <li>
+        <b>团队协同交付</b>：在团队开发环境中紧密协作，确保所有里程碑节点的高质量交付。
+      </li>
+    </ul>
+    <p class="exp__link">
+      <a href="projects/vr-escaperoom/">查看项目详情 →</a>
+      <a href="https://eng-git.canterbury.ac.nz/yzh440/prod223-25s1-escaperoom" target="_blank" rel="noopener noreferrer">项目仓库（校内 EngGit）↗</a>
+    </p>
+  </div>
+
+  <div class="exp">
+    <div class="exp__head">
+      <h3>《赏金猎人 / Bounty Hunter》 · 2D 横版平台跳跃游戏</h3>
+      <span class="exp__meta">2023.06 – 2023.09 · 关卡设计师兼视觉美术</span>
+    </div>
+    <ul>
+      <li><b>关卡心流搭建</b>：设计 2D 横版卷轴关卡，优化整体心流体验，确保合理的难度递进与关卡梯度。</li>
+      <li><b>视觉美术设计</b>：设计游戏背景及各类视觉美术元素，使其高度契合游戏的美学风格与叙事主题。</li>
+      <li><b>引擎落地实现</b>：在引擎中完成关卡的搭建与配置，保证玩家移动导航的流畅性与场景机关的交互体验。</li>
+    </ul>
+    <p class="exp__link">
+      <a href="projects/bounty-hunter/">查看项目详情 →</a> ·
+      <a href="https://github.com/zhangyufei004-afk/BountyHunter" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://accuratestealer.itch.io/bounty-hunter" target="_blank" rel="noopener noreferrer">在 itch.io 游玩 ↗</a>
+    </p>
+  </div>
+
+  <div class="exp">
+    <div class="exp__head">
+      <h3>单人关卡设计项目（4 个，2026.03 – 2026.06）</h3>
+      <span class="exp__meta">2026.03 – 2026.06 · 关卡设计 / AI 系统</span>
+    </div>
+    <ul>
+      <li><b>ECHOES</b>（Unity）：潜行恐怖原型。四状态有限状态机 + NavMesh 寻路 + 视听双通道感知，三轮 playtest 迭代。</li>
+      <li><b>Infiltration</b>（Unreal Engine 5 + ALS）：潜入关卡。垂直探索 / 潜行 / 限时逃离三段式，设计"能量弓按钮链"与叙事化 AR 引导。</li>
+      <li><b>Interleave</b>（Portal 2 PeTI）：解谜测试室。四房间 A ⇒ B ⇒ AB ⇒ AB 结构，已发布到 Steam 创意工坊。</li>
+      <li><b>Delver</b>（自研编辑器）：2D 地牢。以抓钩与推块为核心的空间解谜，重点解决迷路与卡死风险。</li>
+    </ul>
+    <p class="exp__link"><a href="works.html">查看全部项目 →</a></p>
+  </div>
+</section>
+
+<section class="section section--plain">
+  <header class="section__head">
+    <p class="section__kicker">能力</p>
+    <h2 class="section__title">专业技能</h2>
+  </header>
+  <div class="grid grid--2">
+    <div class="pillar">
+      <h3>Unity 引擎 &amp; C# 编程</h3>
+      <ul>
+        <li>熟练 Unity 2D / 3D 研发，能独立设计与实现核心业务系统</li>
+        <li>精通 UI 架构设计与后端控制器逻辑编写</li>
+        <li>具备核心玩法机制的底层重构与手感调优经验</li>
+        <li>ScriptableObject 数据驱动、输入系统重构</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <h3>Unreal Engine 5 &amp; 蓝图</h3>
+      <ul>
+        <li>熟练运用 UE5 蓝图可视化编程进行系统级核心功能开发</li>
+        <li>独立编写 FPS 交互 UI 控件</li>
+        <li>怪物 AI 多样化行为逻辑的<b>行为树与状态机</b>落地</li>
+        <li>战斗系统数值设计与平衡调优</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <h3>版本控制</h3>
+      <ul>
+        <li>熟练应用工业级 <b>Git Flow</b> 工作流模型</li>
+        <li>熟悉 GitLab（EngGit）代码托管平台</li>
+        <li>具备高频提交、规范分支合并、代码评审的实际工程素养</li>
+        <li>跨团队重度代码冲突的协同解决经验</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <h3>敏捷开发与协作</h3>
+      <ul>
+        <li>深入理解并执行 <b>Scrum</b> 敏捷开发框架</li>
+        <li>用 <b>Jira</b> 与 <b>Trello</b> 进行 Sprint 阶段性规划</li>
+        <li>遵循行业标准代码规范，编写高可读性、低耦合、易维护的团队协同代码</li>
+        <li>美术管线：Blender / Autodesk Fusion / Maya 建模与资产导入</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--plain">
+  <header class="section__head">
+    <p class="section__kicker">联系</p>
+    <h2 class="section__title">想聊聊？</h2>
+  </header>
+  <p>
+    如果你对我的项目、设计思路或迭代过程有任何问题，或者有合适的岗位机会，欢迎邮件联系：
+    <a href="mailto:2485357205@qq.com">2485357205@qq.com</a>。
+    也欢迎在 Discord 上直接找我：<code>batcat_773</code>。
+  </p>
+
+  <div class="links">
+    <a class="btn btn--primary" href="assets/docs/zhang-yufei-design-portfolio.pdf" download>
+      游戏策划作品集（PDF）
+    </a>
+    <a class="btn" href="assets/docs/zhang-yufei-resume.pdf" download>简历（PDF）</a>
+    <a class="btn" href="https://github.com/zhangyufei004-afk" target="_blank" rel="noopener noreferrer">
+      GitHub <span class="btn__hint">↗</span>
+    </a>
+    <a class="btn" href="https://www.bilibili.com/video/BV19z8t65ED8/" target="_blank" rel="noopener noreferrer">
+      Bilibili 演示视频 <span class="btn__hint">↗</span>
+    </a>
+  </div>
+
+  <div class="callout">
+    <span class="callout__label">联系方式</span>
+    <p>
+      我习惯用邮件沟通，这也是最可靠的渠道。手机号出于隐私考虑不在此公开——
+      如有需要，请在邮件里说明，我会另行提供。
+    </p>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+# Python 运行时产物
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 编辑器和系统文件
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 构建时的临时文件
+*.log
+*.tmp
+
+# 注意：dist/ 是**故意提交**的
+# 部署平台（EdgeOne Pages / Cloudflare Pages 等）按"纯静态托管"模式直接发布 dist/，
+# 不需要在平台上执行构建 —— 生成器 build.py 是本地用的 Python 脚本，
+# 平台侧跑不了，所以把成品一起版本化，同时也是一份备份。
+
+# 布局检查脚本生成的临时 Chrome 配置目录
+.cache-layout-check/
+

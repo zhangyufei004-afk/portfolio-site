@@ -1,0 +1,73 @@
+# ============================================================================
+#  Unity 项目的 .gitignore —— 复制到仓库根目录，文件名改成 .gitignore
+#  用途：BountyHunter、Cozy-Fishing、Instance-43 等所有 Unity 工程
+#
+#  说明：实测你现有的三个 Unity 仓库并**没有**提交 Library/（这一点做对了）。
+#  这个文件的作用是**保证以后新增的工程不会误提交**这些可再生目录。
+#
+#  注意：对**已经提交过的历史**它无效。仓库偏大要另想办法 ——
+#  先用同目录的 find-bloat.ps1 定位历史里的大文件。
+# ============================================================================
+
+# ---- Unity 生成的目录（绝对不要提交）----
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Asset Store 下载的包（体积大且可重新下载）
+/[Aa]ssets/AssetStoreTools*
+/[Aa]ssets/Plugins/Editor/JetBrains*
+/[Aa]ssets/Plugins/Editor/VisualStudio*
+
+# ---- IDE / 编辑器配置 ----
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ---- 构建产物 ----
+*.apk
+*.aab
+*.unitypackage
+*.app
+ExportedObj/
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# ---- 崩溃报告 / 分析 ----
+sysinfo.txt
+crashlytics-build.properties
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# ---- 系统文件 ----
+.DS_Store
+Thumbs.db
+
+# ============================================================================
+#  大文件提醒
+#  如果 Assets/ 里有超过 50MB 的音频 / 视频 / 贴图，建议改用 Git LFS：
+#      git lfs install
+#      git lfs track "*.psd" "*.wav" "*.mp4" "*.fbx"
+#      git add .gitattributes
+#  否则仓库会持续膨胀，而且 clone 会非常慢。
+# ============================================================================

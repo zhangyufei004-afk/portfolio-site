@@ -1,0 +1,25 @@
+# 让 Git 正确识别文本与二进制文件，避免换行符被乱改
+# 说明：本项目在 Windows 上开发、可能部署到 Linux 服务器，
+# 明确标注后 diff 更干净，也不会破坏二进制文件。
+
+# ---- 文本文件：统一用 LF 存储 ----
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.json   text eol=lf
+*.md     text eol=lf
+*.py     text eol=lf
+
+# ---- 二进制文件：禁止任何转换和 diff ----
+*.jpg    binary
+*.jpeg   binary
+*.png    binary
+*.webp   binary
+*.gif    binary
+*.svg    binary
+*.mp4    binary
+*.pdf    binary
+*.ico    binary
+
+# ---- 让 GitHub 的语言统计不被生成物干扰 ----
+dist/assets/**  linguist-vendored

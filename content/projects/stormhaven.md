@@ -1,0 +1,239 @@
+---
+slug: stormhaven
+title: Stormhaven
+subtitle: 在暴风雨的自然公园里探索，让"走路模拟器"变成有机制的体验
+summary: 六人团队在 Unreal Engine 上的续作式项目：以打磨为目标，为既有原型补上探索功能（Vista 电影镜头、快速旅行网络）、扩展 FPS 系统与叙事。我负责 FPS 系统的整体强化——HUD 重设计、血腥屏效果、射击与检视武器动画，以及敌人 AI 行为与音效。
+year: "2024"
+type: 第一人称探索 / FPS · Unreal
+role: Combat Designer（FPS 系统、HUD、敌人 AI）
+team: 6 人团队（客户：Tristan Leslie / Grimforge Games）
+duration: 2024.06 – 2024.10
+engine: Unreal Engine（蓝图）
+status: 已交付；客户将用它申请后续开发资金
+tags: ["Unreal Engine", "蓝图", "FPS 系统", "HUD 设计", "敌人 AI", "6 人团队"]
+cover: assets/img/stormhaven/vista-spline.jpg
+thumb: assets/img/stormhaven/vista-spline.thumb.jpg
+accent: "#8fd06a"
+order: 5
+---
+
+<section id="overview" title="项目概述" kicker="Overview">
+<p>
+  Stormhaven 是一款探索向的第一人称游戏：玩家在一片暴风雨天气的自然公园中探索，
+  寻找散落在地图上的物品与地点。我们拿到的起点是上学期自己做的原型，
+  这一学期的工作是<b>把之前超出范围的功能补齐</b>，并且<b>以打磨为重点</b>。
+</p>
+
+<p class="dim">
+  代码仓库在坎特伯雷大学内网的 EngGit 上（<code>hhl38/stormhaven</code>，需校内账号），未公开到 GitHub。
+  原始版本由团队共同维护，客户 Tristan Leslie / Grimforge Games 提供了基础工程与大部分美术资产，
+  因此这个项目不适合整体公开源码 —— 下面的截图与复盘已经覆盖了我在其中做的设计判断。
+</p>
+
+<div class="callout">
+  <span class="callout__label">关于源码</span>
+  <p>
+    如果你需要查看我在这条 FPS 系统上的具体实现（弹药 HUD、受击反馈、敌人 AI 行为树），
+    我可以在收到消息后单独提供精选的蓝图与代码片段，或开放校内仓库的临时访问。
+  </p>
+</div>
+
+<h3>客户交给我们的两个问题</h3>
+<blockquote>
+  <p>如果玩家触发传送门开启，叙事能否为随后发生的事件提供足够的上下文？</p>
+  <p>能否围绕探索做出有参与感的玩法，而不是又一款"走路模拟器"？</p>
+</blockquote>
+<p>
+  这两个问题是整个学期的验收标准——我们做的每一个系统都要能回答其中之一。
+</p>
+
+<h3>项目设置</h3>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>项目</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><td>引擎</td><td>Unreal Engine，全蓝图开发（团队无 C++ 经验，客户也要求用 UE）</td></tr>
+    <tr><td>任务管理</td><td>Jira（沿用上学期，效果很好）+ 导出到 Excel 便于总览</td></tr>
+    <tr><td>沟通</td><td>Discord + 每周两次线下会议</td></tr>
+    <tr><td>版本控制</td><td>GitLab。免费版不支持文件锁定，因此我们<b>尽量模块化</b>，并在 Discord 里提前声明"某个大文件正在改"，以降低合并冲突</td></tr>
+    <tr><td>周期</td><td>2024.06 – 2024.10，3 个里程碑（每两周一个），便于中途重新划范围</td></tr>
+    <tr><td>客户资产</td><td>复用 Tristan 提供的逻辑与对象架构系统，以及他提供的资产以保证画面质量</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>团队</h3>
+<ul>
+  <li>Eli Razem — 叙事设计（同时负责场景清理与通路）</li>
+  <li>Jake Genet — 音乐（兼职）</li>
+  <li>Eve Cruickshank — 程序（GUI 开关逻辑与边界情况处理）</li>
+  <li>James Millner — 程序（兴趣点：废弃营地、山顶瞭望塔、矿洞隐藏剧情）</li>
+  <li>Shawn Leung — 程序（日志 GUI、背包系统重做）</li>
+  <li><b>Yufei Zhang — Combat Designer（FPS 系统强化、HUD、敌人 AI）</b></li>
+</ul>
+</section>
+
+<section id="objectives" title="项目目标" kicker="Objectives">
+<div class="grid grid--2">
+  <div class="pillar">
+    <h3>Vista Actor</h3>
+    <p>可交互物件：触发一段沿 spline 的飞行镜头，高亮兴趣点，然后交还给玩家。做成可放置、可自定义的 Actor。</p>
+  </div>
+  <div class="pillar">
+    <h3>快速旅行</h3>
+    <p>基于 spline 的可交互节点，沿路径快速移动玩家；一个 GUI 展示已解锁的路线与节点，并允许连续穿越多个节点抵达目标地点。</p>
+  </div>
+  <div class="pillar">
+    <h3>沉浸式 FPS</h3>
+    <p>移除传统 FPS 的 GUI 元素，换成更沉浸的替代方案；同时强化 AI 行为与动画，让敌人显得更有威胁、更可信。</p>
+  </div>
+  <div class="pillar">
+    <h3>叙事</h3>
+    <p>用物品与地点撑起 Stormhaven 的背景世界，并用一本"日志"记录它们；日志同时揭示玩家所扮演角色的信息。也包括对既有叙事工具（音乐、音效）的整理与扩展。</p>
+  </div>
+</div>
+</section>
+
+<section id="fps" title="我的工作：FPS 系统强化" kicker="FPS System">
+<p>
+  我负责把原有的 FPS 系统按明确需求优化。这条线分成三块：HUD、动画与武器表现、敌人 AI。
+</p>
+
+<h3>1. 重设计 FPS GUI</h3>
+<ul>
+  <li><b>基于颜色的弹药状态 HUD</b>：不再用数字读数，而是用颜色直接传达剩余弹药状态。</li>
+  <li><b>血腥屏效果</b>：随着受到的伤害增加，屏幕逐渐变暗、被血色覆盖——血量不再是界面上的一个条，而是画面本身的状态。</li>
+</ul>
+<figure class="shot">
+  <img src="assets/img/stormhaven/hud-blood.jpg" alt="Stormhaven 的血腥屏效果" loading="lazy" decoding="async">
+  <figcaption>血腥屏效果：受伤越重，画面越被血色压暗，取代了传统的血条读数。</figcaption>
+</figure>
+<p class="dim">
+  这正好回应了客户"沉浸式 FPS"的要求：把信息从界面挪进画面，玩家不必低头看读数。
+</p>
+
+<h3>2. 射击与检视武器动画</h3>
+<ul>
+  <li>加入射击动画与<b>检视武器（weapon inspection）</b>动画。</li>
+  <li>重点在于<b>平滑的动画融合（animation integration）</b>，以及<b>不产生冲突的资产迁移</b>——
+    后者在多人共用 Unreal 工程的团队里是个真实的坑。</li>
+</ul>
+
+<h3>3. 敌人 AI 行为与音效</h3>
+<figure class="shot">
+  <img src="assets/img/stormhaven/enemies.jpg" alt="Stormhaven 中的敌人遭遇" loading="lazy" decoding="async">
+  <figcaption>敌人遭遇：AI 行为与动画被强化，让敌人显得更有威胁。</figcaption>
+</figure>
+<ul>
+  <li>改进 AI 行为，加入<b>游荡（wander）与冲刺（sprint）</b>两种行为。</li>
+  <li>为每种敌人配上<b>各自独有的待机与攻击音效</b>——让玩家能靠听觉辨识威胁类型。</li>
+</ul>
+
+<h3>时间线</h3>
+<p>我的这条工作线按以下顺序推进：GUI 改动 → 怪物补充 → 音效与动画 → 返工与修 bug。</p>
+</section>
+
+<section id="other" title="团队其他交付物" kicker="Team Deliverables">
+<h3>日志 GUI 与叙事系统</h3>
+<figure class="shot">
+  <img src="assets/img/stormhaven/journal-gui.jpg" alt="日志 GUI 界面" loading="lazy" decoding="async">
+  <figcaption>日志 GUI：分"物品 / 地点"两个页签记录玩家的发现。</figcaption>
+</figure>
+<ul>
+  <li>Shawn 开发的日志 GUI 用于记录关键玩法进度，灵感来自《Phasmophobia》的日志；背包系统为此做了重做。</li>
+  <li>Eve 负责 GUI 开关的底层逻辑，并处理<b>多个界面同时打开会互相冲突</b>的边界情况。</li>
+  <li>叙事侧：日志记录玩家遇到的地点与物品，配套物品数据表与描述；用自定义数据类型构建了带目标与结果的叙事管理器。</li>
+  <li>后续目标：把日志页面和整体 GUI 做成更沉浸的形态。</li>
+</ul>
+
+<h3>Vista Actor 与快速旅行</h3>
+<figure class="shot">
+  <img src="assets/img/stormhaven/vista-spline.jpg" alt="Unreal 编辑器中的 Vista Actor 与 spline 路径" loading="lazy" decoding="async">
+  <figcaption>在编辑器中放置 Vista Actor：spline 决定镜头路径，绿色标记是兴趣点。</figcaption>
+</figure>
+<p>
+  开发方式是先按当前理解做原型，再向队友与客户收集反馈，然后按新需求修改。
+  快速旅行的需求是：一个选择地点的菜单、玩家的移动、以及移动过程的可见表现；
+  次要目标是模块化、更干净的 spline 与更智能的路径选择。
+</p>
+<p class="dim">
+  团队自评的问题：开发初期对系统缺乏足够的理解与投入，导致错失了一些打磨机会。
+</p>
+
+<h3>环境与兴趣点</h3>
+<ul>
+  <li>Eli 做了大量地形清理：增加通路、替换桥梁、生成草地。</li>
+  <li>James 在第 4 周前完成了新的兴趣点：一座废弃营地、一处山顶瞭望塔。</li>
+  <li>矿洞被更新：如果玩家执行特定的一系列操作，会揭示隐藏的故事片段。</li>
+</ul>
+
+<h3>音乐</h3>
+<figure class="shot">
+  <img src="assets/img/stormhaven/music.jpg" alt="音乐制作工程截图" loading="lazy" decoding="async">
+  <figcaption>新增两首配乐：氛围背景音乐与矿洞战斗场景音乐。</figcaption>
+</figure>
+</section>
+
+<section id="playtest" title="Playtest 与反思" kicker="Playtest &amp; Reflection">
+<h3>Playtest 反馈</h3>
+<ul>
+  <li><b>环境问题</b>：部分区域的通路是断的（broken pathways）。</li>
+  <li><b>快速旅行问题</b>：玩家预期移动更快甚至瞬时，实际的移动过程比预期慢。</li>
+  <li><b>叙事</b>：相当一部分玩家<b>并不知道游戏里存在叙事</b>，因此它完全没有影响他们的体验——这是对我们叙事设计最直接的批评。</li>
+  <li><b>正面反馈</b>：大多数人喜欢音乐与音频。</li>
+</ul>
+<p>
+  我们在为期一周的窗口里对 <b>222 名学生</b>做了 playtest，并重新申请了伦理审批，
+  随后把收集到的反馈纳入了最后一轮修改。
+</p>
+
+<h3>做得好的</h3>
+<ul>
+  <li><b>范围划分与开发时间线更准</b>：上学期的经验让我们能更准确地判断"在给定时间内我们能做什么、不能做什么"；
+    同时因为已经会做，能做的事反而更多。</li>
+  <li><b>沟通更好</b>：每周 2 次以上会议；明确约定"谁有空余时间，谁就负责主动认领新的、合适的任务"；
+    管理更扁平，虽然仍有人承担了更多"管理"性质的职责。</li>
+</ul>
+
+<h3>问题</h3>
+<ul>
+  <li><b>时间管理</b>：职责互相冲突。</li>
+  <li><b>Git 冲突</b>：出现了少量冲突，但各方面都比上学期有改善。</li>
+  <li><b>与客户沟通不畅</b>：我们和客户<b>同时在做同一个系统</b>，导致我们做出来的东西是冗余的。
+    这是这个项目里我认为最值得记住的一条教训——范围重叠比做错更浪费。</li>
+</ul>
+
+<h3>时间线</h3>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>时间</th><th>里程碑</th></tr></thead>
+  <tbody>
+    <tr><td>9 月 16 日</td><td>项目计划完成；为新机制搭建基础</td></tr>
+    <tr><td>9 月 23 日</td><td>细节工作；探索 Vista 与新的 GUI 元素实现</td></tr>
+    <tr><td>9 月 30 日</td><td>把新元素整合进主游戏与叙事</td></tr>
+    <tr><td>10 月 7 日</td><td>游戏可运行，需要打磨；申请 playtest 伦理审批</td></tr>
+    <tr><td>10 月 14 日</td><td>对 222 名学生 playtest 并打磨；重新申请伦理审批</td></tr>
+    <tr><td>10 月 23 日</td><td>项目完成，playtest 反馈已收集并纳入考虑</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>结论</h3>
+<p>
+  我们的目标是达成既定的项目目标、做出可运行的体验原型、用 Jira 与过去的经验合理划定范围、
+  并完成 playtest 且落实反馈。最终结果是：<b>全部达成</b>。
+</p>
+<ul>
+  <li><b>叙事</b>：创建了新的兴趣点；开发了日志与相关叙事内容。</li>
+  <li><b>探索网络</b>：做出快速旅行系统并与日志整合；做出 Vista Actor。</li>
+  <li><b>打磨与后续</b>：清理地形；实现新的兴趣点；进一步完善 FPS 与敌人 AI。</li>
+</ul>
+<p>
+  交付物是一款<b>客户会用来申请后续开发资金</b>的游戏，并且符合"沉浸而放松、同时能把故事讲出来"的要求。
+  做法上：把目标拆解到最小的任务、反复与客户确认他的构想是否被满足、用蓝图实现较复杂的目标、
+  并使用客户提供的资产来保证画面质量。
+</p>
+<p class="dim">
+  团队后续可能会在课余时间继续开发 Stormhaven，并获得 Tristan 的持续支持。
+</p>
+</section>
