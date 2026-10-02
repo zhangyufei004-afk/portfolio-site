@@ -2,15 +2,15 @@
 slug: cozy
 title: Cozy Fishing
 subtitle: 六人团队、Scrum 与 Git Flow 下的休闲钓鱼游戏
-summary: PC / 主机的休闲风格钓鱼游戏：探索岛屿、接任务、在多种钓鱼小游戏里磨练技巧。我作为程序负责商店、背包、鱼类图鉴、主菜单 / 暂停菜单 / 设置 UI 与角色自定义——并且刻意把脚本写成可复用、可扩展的形式，让设计团队不用改核心系统就能加内容。
+summary: PC / 主机的休闲风格钓鱼游戏：探索岛屿、接任务、在多种钓鱼小游戏里磨练技巧。我负责商店、鱼类图鉴、任务、主菜单 / 暂停 / 设置等系统的界面逻辑与交互原型——信息架构、交互流程与功能实现由我完成，组员在此基础上做视觉优化。脚本刻意写成可复用、可扩展的形式，让设计团队不用改核心系统就能加内容。
 year: "2025"
 type: 休闲游戏 · 团队项目
-role: 程序（UI 系统 / 商店 / 背包 / 图鉴）
+role: 界面系统设计与实现（商店 / 图鉴 / 任务 / 设置）
 team: 6 人团队（In2Games 行业合作课程）
 duration: 2025.07 – 2025.10
 engine: Unity + Maya / Blender
 status: 已完成课业，产出可玩 Demo（PROD322 校企合作项目）
-tags: ["Unity", "UI 系统", "ScriptableObject", "Scrum", "Git Flow", "6 人团队"]
+tags: ["Unity", "界面系统", "ScriptableObject", "数据驱动", "Scrum", "Git Flow", "6 人团队"]
 cover: assets/img/cozy/cover.jpg
 thumb: assets/img/cozy/cover.thumb.jpg
 accent: "#6fc7e8"
@@ -31,7 +31,7 @@ order: 7
     <tr><td>Liz</td><td>AIGD</td><td>技术美术、建模、2D 美术——最终版本的全部关卡设计、shader，以及大部分 2D 与部分 3D 资产</td></tr>
     <tr><td>Madi</td><td>AIGD + 软件工程</td><td>Git 管理与程序——通过代码审查流程让代码库与 git 流程保持干净</td></tr>
     <tr><td>Tobey</td><td>AIGD</td><td>程序与音效设计——最终版本中所有音效都由他设计与实现</td></tr>
-    <tr><td><b>Yufei</b></td><td>AIGD</td><td><b>程序——负责最终版本中的商店与背包实现，以及 UI 系统</b></td></tr>
+    <tr><td><b>Yufei</b></td><td>AIGD</td><td><b>界面系统的设计与实现——商店、图鉴、任务、设置等系统的信息架构、交互流程与功能原型</b></td></tr>
   </tbody>
 </table>
 </div>
@@ -39,23 +39,37 @@ order: 7
 
 <section id="role" title="我的工作" kicker="My Contribution">
 <p>
-  我在团队里的角色是<b>玩法程序与 UI 系统开发</b>，负责菜单、玩家自定义的技术实现，
-  以及确保游戏的 UI/UX 顺畅直观。此外我负责搭建<b>可扩展的脚本</b>，
-  让设计团队能在不改动核心系统的前提下扩展功能。
+  我负责的是<b>界面系统的逻辑层</b>：商店、图鉴、任务与设置这些系统的
+  <b>信息架构、交互流程与功能原型</b>都由我设计与实现——做出来的是<b>带实际功能、
+  可直接游玩</b>的版本，也就是最终呈现的形态。组员在此基础上做视觉优化
+  （重新布局、把 UI 素材替换为她自己绘制的 sprite）。
+</p>
+<p>
+  此外我把这些系统的脚本写成<b>数据驱动、可扩展</b>的形式，
+  让设计团队不必改动核心代码就能加新内容——这也是为什么同一套图鉴界面
+  既能装下鱼类，也能装下钓上来的杂物。
 </p>
 
 <h3>我实现的系统</h3>
 <ul>
   <li>
-    <b>鱼类图鉴（Fish Log）</b>：记录玩家钓到的所有鱼，包含名称、稀有度等元数据。
-    我把它设计成<b>每次成功上钩后动态更新</b>。
+    <b>图鉴 / 记录系统（Fish Log）</b>：记录玩家的每一次收获，包含名称、重量、
+    长度、发现时段与地点。这套结构是<b>数据驱动</b>的——同一套界面既承载鱼类，
+    也承载钓上来的杂物（例如 0.38 kg 的罐头），<b>新增一类收集品不需要改界面</b>。
+    条目在每次成功上钩后动态更新，玩家会主动去凑齐尚未解锁的剪影。
   </li>
   <li>
-    <b>背包系统（Inventory）</b>：物品的存储与管理，让玩家能收集、存放和使用鱼与任务道具。
-    包括槽位处理、UI 更新，以及与其他玩法系统对接的标记（tagging）逻辑。
+    <b>任务系统（Quests）</b>：承接任务、展示分阶段目标与阶段奖励。
+    与图鉴、商店串成"接任务 → 探索与钓获 → 交付领奖 → 买更好鱼饵"的循环。
   </li>
   <li>
-    <b>商店（Shop）</b>：与背包打通，构成游戏内的经济循环。买卖两侧布局把渔获、货币与鱼饵资源连接起来，形成探索之后的资源转化节点。
+    <b>背包与物品管理</b>：物品的存储与检索，包括槽位处理、界面更新，
+    以及与其他玩法系统对接的标记（tagging）逻辑。
+  </li>
+  <li>
+    <b>商店（Shop）</b>：买卖两侧布局把渔获、货币与鱼饵连接起来，构成经济循环。
+    每种鱼饵对应特定鱼种，所以"买什么饵"本身就是玩家的策略选择，
+    而不只是数值升级。
   </li>
   <li>
     <b>钓鱼小游戏原型</b>：设计 <b>DDR 式</b>钓鱼小游戏（以节奏输入承载轻量化操作），完成原型后交由组员继续精细打磨。
@@ -77,16 +91,26 @@ order: 7
 
 <div class="gallery gallery--2">
   <figure class="shot">
-    <img src="assets/img/cozy/ui-fishing.jpg" alt="DDR 式钓鱼小游戏，底部是节奏输入条" loading="lazy" decoding="async">
-    <figcaption><b>钓鱼玩法</b>：我设计的 DDR 式节奏小游戏原型（底部节奏条）</figcaption>
+    <img src="assets/img/cozy/ui-shop.jpg" alt="商店界面：左侧 Sell 出售渔获，右侧 Buy 购买鱼饵，顶部显示持有货币" loading="lazy" decoding="async">
+    <figcaption><b>商店</b>：Sell 侧卖出渔获换货币，Buy 侧购买鱼饵。每种鱼饵对应特定鱼种，「买什么饵」本身就是策略选择</figcaption>
   </figure>
   <figure class="shot">
-    <img src="assets/img/cozy/ui-shop.jpg" alt="商店界面的买卖流程" loading="lazy" decoding="async">
-    <figcaption><b>商店系统</b>：Sell / Buy 两侧布局，把渔获、货币与鱼饵串成资源转化节点</figcaption>
+    <img src="assets/img/cozy/ui-quests.jpg" alt="任务书界面：左侧任务列表，右侧分阶段目标与奖励" loading="lazy" decoding="async">
+    <figcaption><b>任务书</b>：承接任务、查看分阶段目标与奖励，与图鉴和商店串成完整循环</figcaption>
   </figure>
   <figure class="shot">
-    <img src="assets/img/cozy/ui-fishlog.jpg" alt="鱼类图鉴界面，未知鱼类为剪影" loading="lazy" decoding="async">
-    <figcaption><b>鱼类图鉴</b>：未捕获的鱼以剪影呈现，配合信息反馈支撑收集目标</figcaption>
+    <img src="assets/img/cozy/ui-fishlog-caught.jpg" alt="图鉴中已捕获的条目：Goblin Fish 1.02kg 的记录页" loading="lazy" decoding="async">
+    <figcaption><b>图鉴（已解锁）</b>：每次收获都记录名称、重量、时段与地点</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="assets/img/cozy/ui-log-tincan.jpg" alt="图鉴中记录钓到的罐头：Tin Can 0.38kg，发现于 Morning / Ocean" loading="lazy" decoding="async">
+    <figcaption><b>同一套结构装杂物</b>：钓上来的罐头走完全相同的记录结构 —— 这是界面数据驱动的直接证据</figcaption>
+  </figure>
+</div>
+<div class="gallery gallery--2">
+  <figure class="shot">
+    <img src="assets/img/cozy/ui-customise.jpg" alt="角色自定义界面：头发与帽子的 RGB 滑条与预设色板" loading="lazy" decoding="async">
+    <figcaption><b>角色自定义</b>：滑条式 RGB 控制 + 预设色板，实时预览并直接应用到材质</figcaption>
   </figure>
   <figure class="shot">
     <img src="assets/img/cozy/shot-b.jpg" alt="Cozy Fishing 的主菜单" loading="lazy" decoding="async">
