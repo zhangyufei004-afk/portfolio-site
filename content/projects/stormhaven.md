@@ -24,19 +24,11 @@ order: 5
   这一学期的工作是<b>把之前超出范围的功能补齐</b>，并且<b>以打磨为重点</b>。
 </p>
 
-<p class="dim">
-  代码仓库在坎特伯雷大学内网的 EngGit 上（<code>hhl38/stormhaven</code>，需校内账号），未公开到 GitHub。
-  原始版本由团队共同维护，客户 Tristan Leslie / Grimforge Games 提供了基础工程与大部分美术资产，
-  因此这个项目不适合整体公开源码 —— 下面的截图与复盘已经覆盖了我在其中做的设计判断。
+<p>
+  本项目的代码仓库在坎特伯雷大学内网的 EngGit（需校内账号），未公开到 GitHub。
+  原始工程与美术资产由客户 Grimforge Games 提供，出于保护客户资产的考虑不整体开源。
 </p>
 
-<div class="callout">
-  <span class="callout__label">关于源码</span>
-  <p>
-    如果你需要查看我在这条 FPS 系统上的具体实现（弹药 HUD、受击反馈、敌人 AI 行为树），
-    我可以在收到消息后单独提供精选的蓝图与代码片段，或开放校内仓库的临时访问。
-  </p>
-</div>
 
 <h3>客户交给我们的两个问题</h3>
 <blockquote>
@@ -237,3 +229,11 @@ order: 5
   团队后续可能会在课余时间继续开发 Stormhaven，并获得 Tristan 的持续支持。
 </p>
 </section>
+
+<div class="callout">
+  <span class="callout__label">关于源码</span>
+  <p>
+    受客户资产与团队共有仓库的限制，本项目源码不整体公开。
+    如需核验弹药 HUD、受击反馈或敌人 AI 行为树的具体实现，可提供精选的蓝图与代码片段。
+  </p>
+</div>
