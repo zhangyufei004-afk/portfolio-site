@@ -46,12 +46,12 @@
       <p class="hero__lead">单人开发的潜行恐怖原型。核心是一套 Patrol / Suspicious / Chase / Attack 有限状态机，配合 Unity NavMesh 寻路、听觉与视觉感知，以及一个让玩家能主动切断追踪的躲藏机制。三轮 playtest 迭代把它从"不公平的逃跑模拟器"推成了一款战术潜行体验。</p>
       <div class="hero__tags"><span class="tag">Unity</span><span class="tag">有限状态机</span><span class="tag">NavMesh</span><span class="tag">AI 感知</span><span class="tag">恐怖</span><span class="tag">单人项目</span></div>
       <dl class="facts">
-<div class="fact"><dt>担任</dt><dd>单人开发（设计 / 程序）</dd></div>
+<div class="fact"><dt>担任</dt><dd>单人开发</dd></div>
 <div class="fact"><dt>团队</dt><dd>个人项目</dd></div>
 <div class="fact"><dt>周期</dt><dd>2026.03 – 2026.06</dd></div>
 <div class="fact"><dt>引擎 / 工具</dt><dd>Unity（C#）+ Mixamo 动画</dd></div>
 <div class="fact"><dt>类型</dt><dd>潜行恐怖 · AI 系统</dd></div>
-<div class="fact"><dt>状态</dt><dd>已完成的课程作业（PROD323 Assignment 2）</dd></div>
+<div class="fact"><dt>状态</dt><dd>已完成的课程作业</dd></div>
       </dl>
   <figure class="hero__cover">
     <img src="../../assets/img/echos/cover.jpg" alt="ECHOES 封面" loading="lazy" decoding="async">
@@ -81,7 +81,7 @@
   <li><b>探索</b>：在黑暗中移动，寻找符文与出口。</li>
   <li><b>感知风险</b>：通过小地图判断怪物的方位，避开它的巡逻路线。</li>
   <li><b>被察觉</b>：一旦产生噪声或进入视线，怪物转入 Suspicious，前往最后已知位置搜索。</li>
-  <li><b>应对</b>：跑（会被追上）、躲（按键隐藏，切断视听痕迹）或赌它搜索失败。</li>
+  <li><b>应对</b>：跑（会被追上）、躲（按键隐藏，切断视听痕迹）。</li>
 </ol>
 
 <div class="callout">
@@ -251,28 +251,27 @@
   <figcaption>怪物开始巡逻后，窄走廊里玩家没有任何反制手段。</figcaption>
 </figure>
 <p>
-  <b>观察</b>：玩家反馈很挫败——迷宫走廊太窄，怪物一旦开始巡逻，玩家既无法绕开，也无法切断视线。
+  <b>观察</b>：玩家反馈很挫败,迷宫走廊太窄，怪物一旦开始巡逻，玩家既无法绕开，也无法隐藏起来阻挡怪物的视线。
 </p>
 <p>
-  <b>解法</b>：加入可交互的躲藏机制。玩家按 <code>E</code> 躲进柜子，期间<b>临时关闭自身的视觉与听觉痕迹</b>。
+  <b>解法</b>：加入可交互的躲藏机制。玩家按 <code>E</code> 躲进柜子，期间<b>怪物会清空之前的视野和听觉信息，从追击状态切换回巡逻状态。</b>。
 </p>
 <figure class="shot">
   <img src="../../assets/img/echos/hiding-cabinet.jpg" alt="用于躲藏的古董柜模型" loading="lazy" decoding="async">
-  <figcaption>躲藏点：古董柜（Antique Cabinet）。</figcaption>
+  <figcaption>躲藏点：古董柜。</figcaption>
 </figure>
 <p>
-  这个改动把游戏从"挫败的跑步模拟器"变成了有战术层的潜行——玩家第一次拥有了主动切断追踪的能力，
-  难度感也随之从"不公平"变成"公平但紧张"。
+  这个改动把游戏从单纯的"跑步模拟器"变成了玩家可以做出战术决策的类似“黎明杀机”的游戏体验。
 </p>
 
 <h3 id="迭代-2--怪物穿墙--重新烘焙-NavMesh">迭代 2 · 怪物穿墙 → 重新烘焙 NavMesh</h3>
 <div class="gallery gallery--2">
   <figure class="shot">
-    <img src="../../assets/img/echos/navmesh-agent-radius-a.jpg" alt="调整 Agent Radius 前的追击表现" loading="lazy" decoding="async">
+    <img src="../../assets/img/echos/navmesh-agent-radius-b.jpg" alt="调整 Agent Radius 前的追击表现" loading="lazy" decoding="async">
     <figcaption>调整前：追击转弯时上半身和手臂穿进墙体。</figcaption>
   </figure>
   <figure class="shot">
-    <img src="../../assets/img/echos/navmesh-agent-radius-b.jpg" alt="调整 Agent Radius 后的追击表现" loading="lazy" decoding="async">
+    <img src="../../assets/img/echos/navmesh-agent-radius-a.jpg" alt="调整 Agent Radius 后的追击表现" loading="lazy" decoding="async">
     <figcaption>调整后：AI 与障碍物保持合理距离。</figcaption>
   </figure>
 </div>
@@ -280,7 +279,7 @@
   <b>观察</b>：怪物在拐角追击玩家时，上半身与手臂频繁穿进水泥墙，直接破坏沉浸感。
 </p>
 <p>
-  <b>根因</b>：不是动画问题，而是 <b>AI 物理模型尺寸与 Unity NavMesh 设置不匹配</b>——烘焙出的路径离墙太近。
+  <b>原因</b>：不是动画问题，而是 <b>AI 物理模型尺寸与 Unity NavMesh 设置不匹配</b>导致烘焙出的路径离墙太近。
 </p>
 <p>
   <b>修复</b>：打开 Navigation 窗口，<b>增大 Agent Radius 并重新烘焙</b>，强制 AI 与障碍物保持真实距离。
@@ -295,8 +294,8 @@
   <figcaption>高对比度小地图雷达：既解决导航，也让玩家能预判盲转角后的怪物。</figcaption>
 </figure>
 <p>
-  <b>问题</b>：第二轮 playtest 暴露出两个问题——玩家在黑暗迷宫里完全找不到出口；
-  窄转角导致"贴脸"惊吓，玩家直接撞进怪物怀里，感觉是被惩罚而不是被吓到。
+  <b>问题</b>：第二轮 playtest 暴露出两个问题，首先是玩家在黑暗迷宫里完全找不到出口；
+  其次是地图的窄转角导致跳脸杀，玩家直接撞进怪物怀里，感觉在游戏机制层面相当的无解。
 </p>
 <p>
   <b>解法</b>：实现高对比度小地图雷达。技术上的做法是
@@ -333,7 +332,7 @@
     让 AI 可预测到能被学会，又持续到足以让人害怕。
   </li>
   <li>
-    <b>躲藏机制</b>：允许玩家切断视线这一件事，就把游戏从"挫败的跑步模拟器"
+    <b>躲藏机制</b>：允许玩家隔断怪物的视线这一件事，就把游戏从"挫败的跑步模拟器"
     彻底改造成了战术潜行体验。
   </li>
 </ul>

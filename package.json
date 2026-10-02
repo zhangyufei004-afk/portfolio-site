@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "张宇飞 · 游戏与关卡设计作品集（静态站，产物已提交在 dist/）",
+  "scripts": {
+    "build": "python3 build_for_host.py || python build_for_host.py"
+  }
+}

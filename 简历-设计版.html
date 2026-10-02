@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>张宇飞 · 游戏策划简历</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Source Han Sans SC",
+                 "Noto Sans CJK SC", "SimHei", sans-serif;
+    color: #1a1a1a;
+    font-size: 9.40pt;
+    line-height: 1.34;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { padding: 10mm 14mm 9mm 14mm; background: #fff; }
+
+  /* ===== 页眉 ===== */
+  .head { display: flex; justify-content: space-between; align-items: flex-end;
+          border-bottom: 2px solid #123c73; padding-bottom: 1.6mm; }
+  .name { font-size: 18pt; font-weight: 700; letter-spacing: 0.06em; line-height: 1; }
+  .intent { font-size: 9.2pt; color: #333; text-align: right; line-height: 1.5; }
+  .intent b { font-weight: 600; }
+  .contact { font-size: 8.5pt; color: #444; line-height: 1.55; margin-top: 1.2mm; }
+  .contact .sep { color: #c8c8c8; margin: 0 1mm; }
+
+  /* ===== 章节 ===== */
+  h2 { font-size: 10.5pt; font-weight: 700; letter-spacing: 0.08em;
+       margin: 2.6mm 0 1.2mm 0; padding-bottom: 0.5mm;
+       border-bottom: 1.2px solid #1a4d8f; color: #123c73; }
+  h2:first-of-type { margin-top: 2mm; }
+
+  /* ===== 教育 ===== */
+  .edu-row { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; }
+  .edu-row .right { font-weight: 400; color: #444; font-size: 9pt; }
+  .edu-sub, .courses { color: #333; }
+  .courses { margin-top: 0.3mm; text-align: left; }
+  .courses b { font-weight: 600; }
+
+  /* ===== 项目 ===== */
+  .job { margin-top: 1.9mm; }
+  .job:first-of-type { margin-top: 1mm; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-title { font-weight: 700; }
+  .job-title .proj { color: #123c73; }
+  .job-meta { font-size: 8.6pt; color: #555; white-space: nowrap; padding-left: 3mm; }
+  .job ul { margin: 0.2mm 0 0 0; padding-left: 3.8mm; list-style: none; }
+  .job li { position: relative; margin: 0.15mm 0; text-align: left; }
+  .job li::before { content: "·"; position: absolute; left: -2.9mm; color: #1a4d8f; font-weight: 700; }
+  .job li b { font-weight: 600; }
+
+  /* ===== 技能 / 游戏 ===== */
+  .kv { display: grid; grid-template-columns: 27mm 1fr; row-gap: 0.6mm; column-gap: 1.8mm; }
+  .kv .k { font-weight: 600; color: #123c73; white-space: nowrap; }
+  .kv .v { color: #222; text-align: left; }
+
+  @media print { a { color: #1a4d8f !important; text-decoration: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="head">
+    <div class="name">张宇飞</div>
+    <div class="intent">求职意向：<b>游戏策划</b>（系统 / 关卡方向）　2027 届</div>
+  </div>
+  <div class="contact">
+    电话 18610801974<span class="sep">|</span>邮箱 2485357205@qq.com<span class="sep">|</span>Discord batcat_773<span class="sep">|</span>GitHub github.com/zhangyufei004-afk<br>
+    在线作品集 portfolio-site.zhangyufei004.workers.dev
+  </div>
+
+  <h2>教育背景</h2>
+  <div class="edu-row">
+    <span>坎特伯雷大学（University of Canterbury）　新西兰</span>
+    <span class="right">2023.03 – 2027.07</span>
+  </div>
+  <div class="edu-sub">应用沉浸式游戏设计（产品设计学院）　本科</div>
+  <div class="courses">
+    <b>主修课程：</b>游戏开发流程、情境化游戏设计、沉浸式游戏设计、关卡设计专题、游戏引擎与人工智能、游戏计算、游戏项目工作室 1 &amp; 2
+  </div>
+
+  <h2>项目经历</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title"><span class="proj">INSTANCE 43</span>（Unity 2D 动作 Demo）　独立开发</span>
+      <span class="job-meta">2026.07</span>
+    </div>
+    <ul>
+      <li><b>战斗系统设计：</b>设计"部署—回收"双阶段攻击机制，构建攻击 / 机动 / 防御 / 爆发四种战场价值与四条分支天赋树，规划多套敌人 AI 行为逻辑</li>
+      <li><b>界面实现：</b>产出战斗 HUD（生命 / 能量 / 4 技能槽 / 目标提示）、技能配置界面、层间路线选择界面　<b>技术：</b>Unity + C#，已开源</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title"><span class="proj">关卡设计项目 3 个</span>（关卡设计专题课）</span>
+      <span class="job-meta">2026.03 – 2026.06</span>
+    </div>
+    <ul>
+      <li><b>ALS 潜入关卡</b>（UE5 + ALS）：垂直探索 / 潜行 / 限时逃离三段式节奏；设计限时能量按钮链谜题与墙面 AR 叙事化引导</li>
+      <li><b>Portal 2 测试室</b>（PeTI）：设计四间依次递进的测试室，把传送漏斗与激光反射两类机制逐步组合成多步链式解谜；已发布 Steam 创意工坊</li>
+      <li><b>Delver 2D 地牢</b>：参照初版《塞尔达传说》的地牢结构，以钥匙与锁门控制探索节奏，抓钩和可推方块作为空间解谜手段　<b>技术：</b>课程自研 2D 地牢编辑器</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title"><span class="proj">ECHOES</span>（Unity 潜行恐怖 AI 原型）　独立开发</span>
+      <span class="job-meta">2026.03 – 2026.06</span>
+    </div>
+    <ul>
+      <li><b>AI 系统设计：</b>巡逻 / 警觉 / 追击 / 攻击四状态有限状态机，配合 NavMesh 寻路与视听双通道感知</li>
+      <li><b>迭代优化：</b>三轮 playtest 后新增躲藏机制与高对比度小地图，解决巡逻不公与迷路问题　<b>技术：</b>Unity + C#</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title"><span class="proj">Cozy Fishing</span>（Unity 休闲模拟）　团队 6 人</span>
+      <span class="job-meta">2025.07 – 2025.10</span>
+    </div>
+    <ul>
+      <li><b>系统设计与实现：</b>商店交易系统（渔获 / 货币 / 鱼饵的资源转化节点）、背包库存系统、鱼类图鉴、游戏设置系统</li>
+      <li><b>玩法原型：</b>DDR 式节奏钓鱼小游戏　<b>技术：</b>Unity + C#</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title"><span class="proj">VR Escape Room</span>（Unity / VR 密室逃脱）　个人项目</span>
+      <span class="job-meta">2025.02 – 2025.06</span>
+    </div>
+    <ul>
+      <li><b>VR 设计与开发：</b>关卡解谜逻辑、手势交互、主流程状态机；用 Blender 与 Fusion 完成 3D 资产并导入　<b>技术：</b>Unity + C#</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title"><span class="proj">StormHaven</span>（UE5 第一人称探索 + FPS）　团队 6 人</span>
+      <span class="job-meta">2024.06 – 2024.10</span>
+    </div>
+    <ul>
+      <li><b>战斗设计（Combat Designer）：</b>战斗系统数值设计与平衡调优；用蓝图开发弹药计数控件（绿 / 黄 / 红三色动态反馈）</li>
+      <li><b>UI 与 AI：</b>重构生命值反馈，以全屏血痕与暗角替代传统血条；配置行为树与黑板编写敌人攻击模式　<b>技术：</b>UE5 蓝图（校企合作）</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title"><span class="proj">Bounty Hunter</span>（Unity 2D 横版平台跳跃）　团队 6 人</span>
+      <span class="job-meta">2023.06 – 2023.09</span>
+    </div>
+    <ul>
+      <li><b>关卡与 UI 设计：</b>设计卷轴关卡与难度递进；设计地图 / 商店 / 装备界面与游戏 HUD　<b>技术：</b>Unity 2D，已在 itch.io 发布</li>
+    </ul>
+  </div>
+
+  <h2>专业技能</h2>
+  <div class="kv">
+    <div class="k">Unity / C#</div>
+    <div class="v">2D 与 3D 开发、UGUI 界面架构、NavMesh 导航、物理与射线检测、ScriptableObject 数据驱动、Input System 双输入</div>
+    <div class="k">Unreal Engine 5</div>
+    <div class="v">蓝图系统开发、行为树与黑板、战斗数值设计</div>
+    <div class="k">关卡设计</div>
+    <div class="v">Blockout 到 Final 完整迭代流程、Macro Chart 节奏规划、间接引导与环境叙事</div>
+    <div class="k">协作与美术</div>
+    <div class="v">Git Flow 工作流、Jira / Trello（Scrum 敏捷开发）；Blender、Autodesk Fusion、Maya、Photoshop</div>
+    <div class="k">语言</div>
+    <div class="v">中文（母语）、英语</div>
+  </div>
+
+  <h2>游戏经历</h2>
+  <div class="kv">
+    <div class="k">投入总量</div>
+    <div class="v">累计约 16200 小时（Steam 13261 小时 / 370 款，约 3000 小时于非 Steam 平台）；5 款游戏单款超过 1000 小时</div>
+    <div class="k">核心品类</div>
+    <div class="v">战术射击约 5900h（Apex Legends 2709h、三角洲行动 1500h、Valorant 500h、CS2 418h、彩虹六号围攻 350h）；沙盒 MMO 约 5200h（EVE Online 3992h、Albion Online 1000h）；刷宝养成约 2000h（Warframe 1973h）</div>
+  </div>
+
+</div>
+</body>
+</html>

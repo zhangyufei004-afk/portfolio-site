@@ -2,11 +2,11 @@
 slug: vr-escaperoom
 title: VR Escape Room
 subtitle: 在 VR 里做谜题、交互与流程状态机
-summary: Unity / VR 密室逃脱项目。我负责 VR 交互设计、关卡谜题逻辑、用户体验优化与游戏主流程的状态机控制，并参与 3D 资产制作与团队交付。玩家被锁在一间神秘的房间里，唯一的出路是解开隐藏在房间中的谜题。
+summary: Unity / VR 密室逃脱项目。我负责 VR 交互设计、关卡谜题逻辑、用户体验优化与游戏主流程的状态机控制，并独立完成全部 3D 资产制作。玩家被锁在一间神秘的房间里，唯一的出路是解开隐藏在房间中的谜题。
 year: "2025"
 type: VR 交互与谜题设计
 role: VR 游戏设计师兼核心开发者
-team: 团队项目
+team: 个人项目
 duration: 2025.02 – 2025.06
 engine: Unity + C# / Blender / Autodesk Fusion
 status: 已完成课程项目

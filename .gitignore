@@ -26,3 +26,7 @@ desktop.ini
 # 线上验收脚本的临时目录
 .cache-live-check/
 
+
+# 托管平台的构建输出目录（由 build_for_host.py 从 dist/ 生成）
+public/
+

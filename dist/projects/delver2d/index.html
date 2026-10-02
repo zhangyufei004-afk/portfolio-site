@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>塞尔达式 2D 地牢「Delver」 · Yufei Zhang</title>
-<meta name="description" content="在自制的 Delver / Metroid 编辑器里做的 2D 地牢关卡。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。">
+<meta name="description" content="在课程自研的 2D 地牢关卡编辑器里制作，以初版《塞尔达传说》的地牢为参照。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。">
 <meta name="author" content="张宇飞（Yufei Zhang）">
 <meta name="theme-color" content="#0f1115">
 <meta property="og:title" content="塞尔达式 2D 地牢「Delver」 · Yufei Zhang">
-<meta property="og:description" content="在自制的 Delver / Metroid 编辑器里做的 2D 地牢关卡。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。">
+<meta property="og:description" content="在课程自研的 2D 地牢关卡编辑器里制作，以初版《塞尔达传说》的地牢为参照。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。">
 <meta property="og:type" content="website">
 <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/css/site.css">
@@ -43,13 +43,13 @@
       <p class="hero__kicker">2026 · 项目</p>
       <h1 class="hero__title">塞尔达式 2D 地牢「Delver」</h1>
       <p class="hero__sub">用抓钩与推块讲一道空间谜题，而不是用敌人</p>
-      <p class="hero__lead">在自制的 Delver / Metroid 编辑器里做的 2D 地牢关卡。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。</p>
+      <p class="hero__lead">在课程自研的 2D 地牢关卡编辑器里制作，以初版《塞尔达传说》的地牢为参照。核心是把战斗导向的设计改成环境导向：抓钩 + 可推方块是主谜题机制，钥匙与锁门控制节奏，传送器绕开岩浆。五个阶段的 playtest 迭代最终把重点从"更复杂"转成了"永不让玩家卡死"。</p>
       <div class="hero__tags"><span class="tag">关卡设计</span><span class="tag">2D 地牢</span><span class="tag">空间解谜</span><span class="tag">抓钩</span><span class="tag">节奏控制</span><span class="tag">单人项目</span></div>
       <dl class="facts">
 <div class="fact"><dt>担任</dt><dd>关卡设计（单人）</dd></div>
 <div class="fact"><dt>团队</dt><dd>个人项目</dd></div>
 <div class="fact"><dt>周期</dt><dd>2026.03 – 2026.06</dd></div>
-<div class="fact"><dt>引擎 / 工具</dt><dd>Unity 自研 Delver / Metroid 关卡编辑器</dd></div>
+<div class="fact"><dt>引擎 / 工具</dt><dd>Unity + 课程自研 2D 地牢关卡编辑器</dd></div>
 <div class="fact"><dt>类型</dt><dd>2D 地牢关卡设计</dd></div>
 <div class="fact"><dt>状态</dt><dd>已完成课程作业</dd></div>
       </dl>
@@ -65,7 +65,7 @@
   <header class="section__head"><p class="section__kicker">Overview</p><h2 class="section__title">项目概述</h2></header>
   <div class="section__body">
 <p>
-  这是用课程自研编辑器（Unity 的 Delver / Metroid 关卡编辑器）制作的 2D 地牢关卡。
+  这是用课程自研的 2D 地牢关卡编辑器制作的关卡，设计上以初版《塞尔达传说》的地牢为参照。
   它在设定上<b>不是游戏的第一座地牢</b>，而是<b>抓钩（Grappler）首次登场</b>的地方：
   玩家应该在没有抓钩的状态下走过大约三分之一的关卡，然后拿到它，之后面对几道难度递增的抓钩谜题。
 </p>
@@ -78,7 +78,7 @@
 
 <h3 id="电梯陈述">电梯陈述</h3>
 <p>
-  一关经典塞尔达式的地牢探索关。核心体验依赖<b>策略性探索</b>——
+  一关参照初版《塞尔达传说》的地牢探索关。核心体验依赖<b>策略性探索</b>——
   用有限的资源（钥匙）和独特的位移机制推进，而不是用敌人把玩家淹没。
   它提供公平且有趣的解谜挑战，鼓励玩家在脑中先画出空间地图。
 </p>
