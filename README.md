@@ -3,7 +3,11 @@
 一个**零依赖的静态网站**。不加载任何外部资源（无 CDN、无网络字体、无统计脚本），
 可以离线打开，也可以直接部署到任意静态托管平台。
 
-- **在线地址**：<https://portfolio-site.zhangyufei004.workers.dev/> （Cloudflare Workers & Pages）
+- **在线地址（国内）**：<https://lc2q3vqaz-portfolio-3lul313.maozi.io/> （帽子云，大陆优化线路）
+- **备用地址（海外）**：<https://portfolio-site.zhangyufei004.workers.dev/> （Cloudflare Workers & Pages）
+
+> ⚠️ `*.workers.dev` 在中国大陆遭 DNS 污染（实测阿里 / 腾讯 / 114 三家公共 DNS 均返回
+> 伪造 IP，直连 Cloudflare 边缘节点全部超时），**国内请使用帽子云地址**。
 - **技术形态**：纯静态 HTML + CSS + 少量原生 JS
 - **站点体积**：约 25 MB（12 个页面，含作品集 PDF 与一段项目预告片）
 - **自动部署**：推送到 GitHub 的 `main` 分支后自动重新发布
@@ -12,12 +16,12 @@
 
 | 问题 | 现状 | 影响 |
 | --- | --- | --- |
-| 服务器不支持 HTTP Range 请求 | 实测所有静态资源对 `Range:` 都返回 `200` 全量，且没有 `Accept-Ranges` 响应头 | 视频播放器**拖进度条会重新从头加载**；预告片只有 3.6 MB，影响有限 |
+| ~~服务器不支持 HTTP Range 请求~~ | ✅ **帽子云地址已解决**：实测返回 `206` 与 `Content-Range`，进度条可拖动。仅 Cloudflare 备用地址仍有此限制 | — |
 | VR Escape Room 截图来自编辑器录屏 | 原始画质仅 854×480 | 该页图片偏软 |
 | 三个仓库无 README | `Instance-43` / `Cozy-Fishing` / `BountyHunter` 点进去是裸工程目录 | 访客第一眼流失 |
 
-> Range 那条若之后要修，需把视频放到支持 Range 的对象存储（阿里云 OSS / 腾讯云 COS）
-> 或加一层代理。对 47 秒的预告片来说优先级不高。
+> 两个部署点内容完全相同（同一份 `dist/`）。帽子云更适合国内访客，且支持视频拖动进度条；
+> Cloudflare 适合海外访客，但国内无法直接访问。
 
 ---
 
@@ -47,7 +51,19 @@
 
 推送完成后，仓库应该能看到 `dist/`、`content/`、`build.py` 等目录。
 
-### 腾讯云 EdgeOne Pages（推荐，国内访问快）
+### 帽子云（当前使用中，免费且国内可访问）
+
+已接入：仓库根目录的 `package.json` 声明了 build 脚本，`build_for_host.py` 会把
+已提交的 `dist/` 复制到 `public/`（平台约定的输出目录）。`public/` 也已提交，
+因此在云端构建环境没有 Python 时也能正常发布。
+
+| 配置项 | 值 |
+| --- | --- |
+| 构建命令 | 留空（读取 `package.json` 的 build） |
+| 输出目录 | `public` |
+| 分支 | `main` |
+
+### 腾讯云 EdgeOne Pages（备选）
 
 1. 打开 [EdgeOne Pages 控制台](https://edgeone.cloud.tencent.com/pages)，用腾讯云账号登录
 2. 选择 **从 Git 仓库导入**，绑定 GitHub，选中本仓库
