@@ -9,7 +9,7 @@ role: 战斗系统设计 / 玩法原型 / 内容实现（独立完成）
 team: 个人项目
 duration: 2026（仓库提交记录 07-18 → 09-13）
 engine: Unity 2D + C#
-status: 可运行 Demo，代码已开源
+status: 可运行 Demo，已在 itch.io 发布可玩版本，代码开源
 tags: ["Unity", "战斗系统", "系统策划", "敌人 AI", "成长树", "个人项目"]
 cover: assets/img/instance43/cover.jpg
 thumb: assets/img/instance43/cover.thumb.jpg
@@ -29,7 +29,10 @@ order: 2
 </p>
 
 <div class="links">
-  <a class="btn btn--primary" href="https://github.com/zhangyufei004-afk/Instance-43" target="_blank" rel="noopener noreferrer">
+  <a class="btn btn--primary" href="https://yufei-zhang.itch.io/instance-43" target="_blank" rel="noopener noreferrer">
+    下载试玩（itch.io） <span class="btn__hint">↗ 站外页面</span>
+  </a>
+  <a class="btn" href="https://github.com/zhangyufei004-afk/Instance-43" target="_blank" rel="noopener noreferrer">
     GitHub 仓库 <span class="btn__hint">↗ 站外页面</span>
   </a>
 </div>
