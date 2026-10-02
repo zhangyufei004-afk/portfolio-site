@@ -1,4 +1,4 @@
-# Python 运行时产物
+﻿# Python 运行时产物
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -27,6 +27,7 @@ desktop.ini
 .cache-live-check/
 
 
-# 托管平台的构建输出目录（由 build_for_host.py 从 dist/ 生成）
-public/
+# 注意：public/ 是**故意提交**的
+# 部分托管平台的构建环境没有 Python，跑不了 build_for_host.py。
+# 把 public/ 一起提交，可保证无论平台能否执行构建脚本，站点都在。
 
