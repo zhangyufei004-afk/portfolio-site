@@ -100,6 +100,10 @@ order: 2
 </section>
 
 <section id="attack" title="普通攻击：部署与回收的双阶段输入" kicker="Core Mechanic">
+<figure class="shot">
+  <img src="assets/img/instance43/ui-combat-stages.jpg" alt="实机画面：针已部署到场上，界面提示按 E 启动下一阶段" loading="lazy" decoding="async">
+  <figcaption>实机画面：针已部署在场上，界面提示按 <code>E</code> 启动下一阶段 —— 部署与回收是两个独立输入</figcaption>
+</figure>
 <p>
   这是整个设计里我最想讲清楚的一处判断：<b>把一次攻击拆成两个阶段</b>，
   目的不是让操作变复杂，而是让玩家必须持续管理战场上针织的位置。
@@ -220,8 +224,8 @@ order: 2
 </p>
 <div class="gallery gallery--2">
   <figure class="shot">
-    <img src="assets/img/instance43/route-choice.jpg" alt="楼层路线选择界面" loading="lazy" decoding="async">
-    <figcaption>路线选择：通关后由玩家决定下一个战斗挑战</figcaption>
+    <img src="assets/img/instance43/ui-tower.jpg" alt="楼层路线选择界面：三个节点各带说明" loading="lazy" decoding="async">
+    <figcaption>路线选择：三个节点各带效果说明，通关后由玩家决定下一个战斗挑战</figcaption>
   </figure>
   <figure class="shot">
     <img src="assets/img/instance43/ui-tower-far.jpg" alt="高塔全貌：途经节点与固定首领楼层" loading="lazy" decoding="async">
