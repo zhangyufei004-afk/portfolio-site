@@ -1104,3 +1104,76 @@ figure.video figcaption {
     color: #000;
   }
 }
+
+/* ===== 首页：精简头部（替代 hero） ===== */
+.homehead {
+  padding: 46px 0 30px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.homehead__name {
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.45em;
+  line-height: 1.15;
+}
+
+.homehead__en {
+  font-size: 0.62em;
+  font-weight: 400;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+  margin-left: 0.35em;
+}
+
+.homehead__role {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+}
+
+/* ===== 紧凑作品网格：桌面 4 列 ===== */
+.grid--dense {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 34px 0 64px;
+}
+
+@media (max-width: 1100px) {
+  .grid--dense { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .grid--dense { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+
+@media (max-width: 360px) {
+  .grid--dense { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ===== 紧凑卡片：只有图 + 年份 + 标题 ===== */
+.card--compact {
+  border-radius: var(--radius);
+}
+
+.card--compact .card__thumb {
+  aspect-ratio: 16 / 10;
+  border-bottom: 0;
+}
+
+.card--compact .card__body {
+  padding: 12px 14px 14px;
+}
+
+.card--compact .card__meta {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.35em;
+}
+
+.card--compact .card__title {
+  font-size: 0.98rem;
+  line-height: 1.35;
+  margin: 0;
+}
