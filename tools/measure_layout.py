@@ -4,7 +4,7 @@ Uses a minimal WebSocket client built on the standard library only
 (no third-party browser or websocket dependency).
 
 Run from the repo root, e.g.:
-    python tools/measure_layout.py index.html works.html projects/echos/index.html
+    python tools/measure_layout.py index.html about.html projects/echos/index.html
 """
 import base64
 import json

@@ -208,7 +208,7 @@ body_class: page-about
       <li><b>Interleave</b>（Portal 2 PeTI）：解谜测试室。四房间 A ⇒ B ⇒ AB ⇒ AB 结构，已发布到 Steam 创意工坊。</li>
       <li><b>Delver</b>（自研编辑器）：2D 地牢。以抓钩与推块为核心的空间解谜，重点解决迷路与卡死风险。</li>
     </ul>
-    <p class="exp__link"><a href="works.html">查看全部项目 →</a></p>
+    <p class="exp__link"><a href="index.html">查看全部项目 →</a></p>
   </div>
 </section>
 

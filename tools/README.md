@@ -8,7 +8,7 @@
 python tools/verify_site.py            # 本地链接与图片是否都能解析（不看网络）
 python tools/lint_content.py           # 内容一致性：自相矛盾、残留占位、字段缺失、标签配对
 python tools/check_external_links.py   # 站外链接是否真的能打开（需要网络）
-python tools/measure_layout.py index.html works.html about.html
+python tools/measure_layout.py index.html about.html projects/echos/index.html
                                        # 各断点是否横向溢出（需要 Chrome/Edge）
 ```
 

@@ -144,7 +144,7 @@ python -m http.server 8080
 - 每个项目一页：`content/projects/*.md` —— 文件头填元信息，正文用 `<section>` 分段
 - 样式 `assets/css/site.css`；脚本 `assets/js/site.js`；模板 `templates/`
 
-**加一个新项目 = 新建一个 `.md` 文件**，作品列表会自动多出一张卡片，不需要改任何列表代码。
+**加一个新项目 = 新建一个 `.md` 文件并在 `content/index.md` 里加一张卡片。**
 
 改联系方式时要**同时看两处**：`site.config.json`（页脚）和 `content/about.md`（关于页的"联系"章节），
 否则会出现两处不一致。
@@ -161,7 +161,7 @@ python -m http.server 8080
 python tools/verify_site.py            # 本地链接与图片是否都能解析
 python tools/lint_content.py           # 内容一致性（自相矛盾、残留占位、标签配对、字段缺失）
 python tools/check_external_links.py   # 站外链接是否真的能打开（需要网络）
-python tools/measure_layout.py index.html works.html   # 各断点是否横向溢出（会启动 Chrome）
+python tools/measure_layout.py index.html about.html   # 各断点是否横向溢出（会启动 Chrome）
 ```
 
 验收标准：`broken links: 0`、`broken external links: 0`、内容问题为 0、`overflow cases: 0`。

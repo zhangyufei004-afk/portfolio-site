@@ -37,7 +37,6 @@ DIST = os.path.join(ROOT, "dist")
 
 NAV = [
     ("index.html", "首页"),
-    ("works.html", "作品"),
     ("about.html", "关于"),
 ]
 
@@ -301,7 +300,7 @@ def render_project(meta: dict, body: str) -> str:
                 "toc": project_toc(sections),
                 "sections": "\n".join(rendered),
                 "accent": meta.get("accent", "#5ee0d0"),
-                "backlink": BASE_CTX["prefix"] + "works.html",
+                "backlink": BASE_CTX["prefix"] + "index.html",
             },
         }
     )
@@ -453,20 +452,9 @@ def main() -> int:
             ),
         )
 
-    # ---- works index ----------------------------------------------------
-    saved = BASE_CTX["prefix"]
-    BASE_CTX["prefix"] = ""
-    try:
-        cards = "\n".join(
-            project_card(meta, "projects/%s/" % slug) for _, slug, meta, _ in project_metas
-        )
-    finally:
-        BASE_CTX["prefix"] = saved
-    works_body = (
-        '<section class="section"><div class="grid grid--cards">\n' + cards + "\n</div></section>"
-    )
-
     # ---- standalone content pages ---------------------------------------
+    # 首页（index.html）里的作品网格是手写的，因此 project_card() 目前没有调用点。
+    # 保留该函数是因为新增项目时它仍是最快的卡片模板，同时也是 build_page 的示例。
     standalone = {}
     if os.path.isdir(CONTENT):
         for fn in sorted(os.listdir(CONTENT)):
@@ -478,12 +466,8 @@ def main() -> int:
     for key, out_name, title in (
         ("index", "index.html", config["name"]),
         ("about", "about.html", "关于 · " + config["short_name"]),
-        ("works", "works.html", "作品 · " + config["short_name"]),
     ):
-        if key == "works":
-            meta = {"title": title}
-            body = works_body
-        elif key in standalone:
+        if key in standalone:
             meta, body = standalone[key]
             title = meta.get("title", title)
         else:

@@ -33,8 +33,7 @@ python build.py
 ```
 dist/
   index.html              首页
-  works.html              作品列表
-  about.html              关于
+    about.html              关于
   projects/<slug>/index.html   每个项目的详情页
   assets/css|js|img/      样式、脚本、图片
   robots.txt
