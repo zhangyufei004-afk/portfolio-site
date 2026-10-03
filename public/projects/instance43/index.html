@@ -189,7 +189,7 @@
   <header class="section__head"><p class="section__kicker">Combat UI</p><h2 class="section__title">战斗 UI 与信息层级</h2></header>
   <div class="section__body">
 <figure class="shot">
-  <img src="../../assets/img/instance43/hud-combat.jpg" alt="实时战斗 HUD：生命值、能量储备、四个技能槽位与目标指示" loading="lazy" decoding="async">
+  <img src="../../assets/img/instance43/ui-combat.jpg" alt="实时战斗 HUD：生命值、能量储备、四个技能槽位与目标指示" loading="lazy" decoding="async">
   <figcaption>实时战斗画面：生命值、能量储备、四个技能槽位与目标指示</figcaption>
 </figure>
 
@@ -219,6 +219,17 @@
   <img src="../../assets/img/instance43/combat-ui.jpg" alt="战斗中的另一处 UI 状态" loading="lazy" decoding="async">
   <figcaption>战斗中的另一处 HUD 状态：信息被放在战斗区域外围</figcaption>
 </figure>
+
+<h3 id="同一套原则也用在信息界面">同一套原则也用在信息界面</h3>
+<p>
+  战斗之外的界面遵循同一条原则：<b>让玩家能自己找到答案，而不是把答案一次性念给他</b>。
+  资料库把系统说明、机体档案与术语按类别组织，并支持关键词检索——
+  玩家在需要某个词的意思时能随时查到，而不是只能回头翻教程。
+</p>
+<figure class="shot">
+  <img src="../../assets/img/instance43/ui-database.jpg" alt="资料库界面：检索框、分类标签与记录详情" loading="lazy" decoding="async">
+  <figcaption>资料库：检索 + 分类浏览（机体 / 战斗 / 强化 / 终端 / 档案），右侧为记录详情</figcaption>
+</figure>
   </div>
 </section>
 <section class="section" id="meta">
@@ -244,6 +255,16 @@
   <figcaption>成长树：四条分支由中心节点延伸，形成可视化的长期路径</figcaption>
 </figure>
 
+<p>
+  局内升级与长线成长树是两套独立系统：<b>成长树决定长期方向，局内升级决定这一局怎么走</b>。
+  每一次升级给出三个方向明确的选项（攻击 / 防御 / 机动），并标注该选项的层级上限，
+  让玩家在"补齐短板"与"强化已有路线"之间做取舍。
+</p>
+<figure class="shot">
+  <img src="../../assets/img/instance43/ui-upgrade.jpg" alt="升级选择界面：攻击 / 防御 / 机动三个选项与各自的层级上限" loading="lazy" decoding="async">
+  <figcaption>局内升级：三个方向各带层级上限，玩家需在补齐与强化之间取舍</figcaption>
+</figure>
+
 <h3 id="楼层路线图与叙事节奏">楼层路线图与叙事节奏</h3>
 <p>
   我把一局行动拆成<b>战斗、选择、推进和叙事停顿</b>四种节拍。玩家通关当前关卡后获得选择权，
@@ -256,10 +277,40 @@
     <figcaption>路线选择：通关后由玩家决定下一个战斗挑战</figcaption>
   </figure>
   <figure class="shot">
+    <img src="../../assets/img/instance43/ui-tower-far.jpg" alt="高塔全貌：途经节点与固定首领楼层" loading="lazy" decoding="async">
+    <figcaption>高塔全貌：沿途节点与固定首领楼层（红色节点），由下往上推进</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../../assets/img/instance43/ui-tower-top.jpg" alt="高塔顶部与首领节点" loading="lazy" decoding="async">
+    <figcaption>塔顶段：越往上节点越稀疏，首领楼层作为阶段终点</figcaption>
+  </figure>
+  <figure class="shot">
     <img src="../../assets/img/instance43/dialogue.jpg" alt="战斗间的叙事对话框" loading="lazy" decoding="async">
     <figcaption>叙事停顿：战斗之间穿插的对话与剧情推进</figcaption>
   </figure>
 </div>
+
+<h3 id="一局的结构战斗之外还有休整与结算">一局的结构：战斗之外还有休整与结算</h3>
+<p>
+  除了战斗与叙事，一局里还有两类节点承担<b>资源决策</b>：
+  休整区的黑市用碎片换取即时收益，三个选项各自带有明确的机会成本
+  （消耗碎片换伤害、消耗碎片换生命，或者反过来<b>用最大生命换碎片</b>）。
+</p>
+<div class="gallery gallery--2">
+  <figure class="shot">
+    <img src="../../assets/img/instance43/ui-blackmarket.jpg" alt="休整区黑市：三个带机会成本的资源兑换选项" loading="lazy" decoding="async">
+    <figcaption>休整区 · 黑市：每个选项都有代价，包括用最大生命换资源</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../../assets/img/instance43/ui-failif.jpg" alt="撤离失败结算界面：存活时间、层数、击破数与本局收获" loading="lazy" decoding="async">
+    <figcaption>撤离失败结算：把这一局做了什么完整量化，失败也给出明确反馈</figcaption>
+  </figure>
+</div>
+<p>
+  结算页把<b>存活时间、到达层数、完成层数、击破数量、路线与升级选择数、精英击破</b>
+  一次列清，并结算本局收获与余额。即便是失败的一局，玩家也能看清自己在哪一步做了错误判断——
+  这是我刻意保留的反馈闭环。
+</p>
   </div>
 </section>
 <section class="section" id="playtest">

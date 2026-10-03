@@ -113,13 +113,37 @@ order: 7
     <figcaption><b>角色自定义</b>：滑条式 RGB 控制 + 预设色板，实时预览并直接应用到材质</figcaption>
   </figure>
   <figure class="shot">
-    <img src="assets/img/cozy/shot-b.jpg" alt="Cozy Fishing 的主菜单" loading="lazy" decoding="async">
-    <figcaption><b>主菜单</b>：开始 / 设置 / 荣誉榜 / 退出</figcaption>
+    <img src="assets/img/cozy/ui-fishlog-locked.jpg" alt="鱼类图鉴界面：未捕获的鱼以剪影呈现" loading="lazy" decoding="async">
+    <figcaption><b>图鉴（未解锁）</b>：未捕获的条目以剪影占位，配合右侧详情结构形成收集目标</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="assets/img/cozy/ui-mainmenu.jpg" alt="Cozy Fishing 主菜单：岛屿全景与开始 / 设置 / 荣誉榜 / 退出" loading="lazy" decoding="async">
+    <figcaption><b>主菜单</b>：以整座岛屿作为背景，直接传达游戏的空间与调性</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="assets/img/cozy/ui-settings.jpg" alt="设置界面：分辨率与显示模式" loading="lazy" decoding="async">
+    <figcaption><b>设置 UI</b>：分辨率与显示模式等可配置项</figcaption>
   </figure>
 </div>
+
+<div class="callout">
+  <span class="callout__label">关于界面分工</span>
+  <p>
+    以上界面的<b>信息架构、交互流程与功能实现由我完成</b>——交付的是带实际功能、
+    可直接游玩的原型，也就是最终呈现的形态。组员在此基础上做视觉优化
+    （重新布局、把 UI 素材替换为她自己绘制的 sprite）。
+  </p>
+</div>
+
+<h3>制作名单与团队</h3>
+<p>
+  项目为六人团队，各自负责的模块在制作名单中署名。除程序与界面系统外，
+  名单也完整记录了项目使用的外部音效素材与鱼类设计贡献者——
+  这是我坚持保留的部分：<b>用了别人的东西，就要写清楚是谁的</b>。
+</p>
 <figure class="shot">
-  <img src="assets/img/cozy/shot-c.jpg" alt="Cozy Fishing 的设置界面" loading="lazy" decoding="async">
-  <figcaption>设置 UI：分辨率与显示模式等可配置项</figcaption>
+  <img src="assets/img/cozy/ui-credits.jpg" alt="制作名单：六人团队分工，以及使用的外部素材与鱼类贡献者署名" loading="lazy" decoding="async">
+  <figcaption>制作名单：六人分工署名，并列出所用外部音效素材与鱼类设计贡献者</figcaption>
 </figure>
 
 <div class="links">
