@@ -172,11 +172,11 @@
   <header class="section__head"><p class="section__kicker">Blockout → Final</p><h2 class="section__title">五个阶段的迭代</h2></header>
   <div class="section__body">
 <p>
-  这一关经历了 Blockout / Alpha / Beta / Gamma / Final 五个阶段，每一轮 playtest 都暴露了不同层级的问题：
-  先是<b>空间与指标</b>，然后是<b>节奏</b>，再是<b>难度公平性</b>，最后是<b>主题与引导</b>。
+  这一关经历了 Blockout / Alpha / Beta / Gamma / Final 五个阶段。
+  每一轮 playtest 暴露的问题层级都不同 —— 从<b>空间尺度</b>，到<b>节奏</b>，再到<b>难度公平性</b>，
+  最后是<b>主题与引导</b>。
 </p>
 
-<h3 id="Blockout--空间尺度与跳跃指标">Blockout · 空间尺度与跳跃指标</h3>
 <div class="gallery gallery--2">
   <figure class="shot">
     <img src="../../assets/img/als/blockout-a.jpg" alt="Blockout 阶段的大厅空间" loading="lazy" decoding="async">
@@ -187,84 +187,52 @@
     <figcaption>用能量触发器 + 能量箱测试核心解谜流程是否直观</figcaption>
   </figure>
 </div>
-<p>
-  <b>反馈</b>：测试者在这个没有贴图的大房间里<b>迷路或走进死路</b>，缺少视觉层级和明确的面包屑；
-  另一部分人反映<b>跳跃距离过严</b>——他们误判了 ALS 的空中跳跃极限，频繁掉回房间底部。
-</p>
-<p>
-  <b>修正</b>：调整方块位置，让它们形成更连续的"楼梯"；重新校准精确的跳跃距离，
-  把平台稍微拉近，并加入中间安全平台降低早期挫败感。
-</p>
 
-<h3 id="Alpha--潜行与限时按钮的冲突">Alpha · 潜行与限时按钮的冲突</h3>
-<div class="gallery gallery--2">
-  <figure class="shot">
-    <img src="../../assets/img/als/alpha-a.jpg" alt="Alpha 阶段的潜行区域" loading="lazy" decoding="async">
-    <figcaption>Alpha：加入 AI 守卫与巡逻路线，掩体是低矮方块</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="../../assets/img/als/alpha-b.jpg" alt="Alpha 阶段的限时机关" loading="lazy" decoding="async">
-    <figcaption>引入限时能量按钮，本意是增加紧迫感</figcaption>
-  </figure>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>阶段</th><th>Playtest 反馈</th><th>我的修正</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>Blockout</b><br>空间尺度与跳跃指标</td>
+      <td>在没有贴图的大房间里<b>迷路或走死路</b>，缺少视觉层级；
+          部分人<b>误判 ALS 的空中跳跃极限</b>，频繁掉回房间底部</td>
+      <td>调整方块位置形成更连续的"楼梯"；重新校准跳跃距离，
+          把平台拉近并加入中间安全平台</td>
+    </tr>
+    <tr>
+      <td><b>Alpha</b><br>潜行与限时的冲突</td>
+      <td>两名测试者都指出限时过于苛刻。一位明确说
+          <b>"给潜行段计时完全抹掉了潜行的感觉"</b>，逼得玩家只能盲目冲刺</td>
+      <td>放宽谜题计时。我原本假设"计时 + 潜行 = 更紧迫"，
+          这个假设被测试直接否掉</td>
+    </tr>
+    <tr>
+      <td><b>Beta</b><br>难度尖峰与主题不清</td>
+      <td>出现了严重的<b>"人为难度"尖峰</b>：红色击杀方块与检查点 6 的守卫
+          被评价为"过于惩罚，而不是公平的挑战"；
+          四人中三人觉得环境太抽象，说不清这是什么设施</td>
+      <td>放宽计时；但为增强逃离段风险加入的击杀方块与守卫，
+          反而制造了不公平的难度 —— 这条在下一阶段继续处理</td>
+    </tr>
+    <tr>
+      <td><b>Gamma</b><br>修引擎层面的摩擦</td>
+      <td>所有测试者的共同意见：关卡仍像"一个洞"或"一堆橙色方块"，
+          不像真实的潜入地点；AI 守卫因此显得随意
+          （环境看起来不值得守卫）</td>
+      <td>纯技术修复：把可攀爬方块从贴墙位置拉开（否则翻越动画不触发）、
+          统一 mantle 高度、<b>缩小蹲伏区击杀区的碰撞盒</b>修掉不公平死亡</td>
+    </tr>
+    <tr>
+      <td><b>Final</b><br>用环境本身做引导</td>
+      <td>线性引导与谜题逻辑受到肯定；"用能量弓按顺序击打一串限时按钮"
+          被评价为对机制的聪明用法</td>
+      <td>保留按钮链结构，但把它整合进重做的环境：用蓝色瓷砖与工业混凝土
+          分区，并在墙面加入叙事化 AR 文字承担引导职能</td>
+    </tr>
+  </tbody>
+</table>
 </div>
-<p>
-  这一阶段我的目标是整合核心玩法循环：潜行机制与能量弓解谜。我加了 AI 守卫、规划了巡逻路线，
-  并决定引入限时能量按钮来制造紧张感。
-</p>
-<p>
-  <b>反馈</b>：两名测试者都指出限时机制过于苛刻。一位测试者明确说
-  <b>"给潜行段计时完全抹掉了潜行的感觉"</b>，逼得玩家只能盲目冲刺；另一位觉得第一个谜题的时限太紧。
-</p>
-<blockquote>
-  <p>我当时以为"计时 + 潜行 = 更紧迫"，但这个假设被测试直接否掉了。</p>
-</blockquote>
 
-<h3 id="Beta--难度尖峰与主题不清">Beta · 难度尖峰与主题不清</h3>
-<div class="gallery gallery--2">
-  <figure class="shot">
-    <img src="../../assets/img/als/beta-a.jpg" alt="Beta 阶段的逃离段" loading="lazy" decoding="async">
-    <figcaption>Beta：为逃离段加入红色击杀方块与移动平台</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="../../assets/img/als/beta-b.jpg" alt="Beta 阶段的检查点区域" loading="lazy" decoding="async">
-    <figcaption>在检查点 6 附近放置 AI 守卫以提高张力</figcaption>
-  </figure>
-</div>
-<p>
-  <b>做了什么</b>：按反馈放宽了谜题计时；为增强"限时逃离"段的风险，引入红色击杀方块和移动平台；
-  在检查点 6 附近安排一名 AI 守卫，并散布更多击杀区来考验玩家的移动精度。
-</p>
-<p>
-  <b>反馈</b>：核心布局确实做出了紧凑、紧张的潜行氛围，但出现了严重的<b>"人为难度"尖峰</b>与<b>主题模糊</b>。
-  两位测试者明确表示红色击杀方块和检查点 6 上的守卫"过于惩罚，而不是公平的挑战"；
-  四人中有三人觉得环境依然太抽象、太通用，说不清自己闯进的到底是什么设施。
-</p>
-
-<h3 id="Gamma--修引擎层面的摩擦">Gamma · 修引擎层面的摩擦</h3>
-<figure class="shot">
-  <img src="../../assets/img/als/gamma-a.jpg" alt="Gamma 阶段的关卡俯视" loading="lazy" decoding="async">
-  <figcaption>Gamma：把可攀爬方块从贴墙位置拉开，并统一攀爬高度</figcaption>
-</figure>
-<p>
-  Gamma 阶段几乎全部用来修复 Beta 暴露的机械性摩擦：
-</p>
-<ul>
-  <li>做关键的空间调整以适配严格的 ALS 运动系统——<b>把可攀爬方块从紧贴墙面的位置拉开</b>，否则翻越动画无法触发。</li>
-  <li>统一攀爬（mantle）高度，避免出现"看着能上但上不去"的反直觉情况。</li>
-  <li><b>缩小蹲伏区域里击杀区的碰撞盒</b>，修掉"没碰到红区却被判定死亡"的不公平死亡。</li>
-</ul>
-<p>
-  <b>反馈</b>：这是所有测试者共同的意见——关卡仍像"一个洞"或"一堆橙色方块"，
-  不像真实的潜入地点；AI 守卫的存在因此显得随意，因为环境看起来不值得守卫。
-  另有一位测试者指出整关更像一段连续的计时障碍赛，而不是有明确"潜行"与"逃离"两个阶段。
-</p>
-<p>
-  正面反馈也很明确：<b>线性引导与谜题逻辑受到肯定</b>，
-  用能量弓按顺序击打一串限时按钮来开不同门的"按钮链"被评价为对机制的聪明用法。
-  我保留了这套谜题结构，但决定把它更好地整合进改好的环境里。
-</p>
-
-<h3 id="Final--用环境本身做引导">Final · 用环境本身做引导</h3>
 <div class="gallery gallery--2">
   <figure class="shot">
     <img src="../../assets/img/als/final-a.jpg" alt="Final 阶段：蓝色瓷砖与工业混凝土分区" loading="lazy" decoding="async">
@@ -283,17 +251,6 @@
     <figcaption>"INCINERATOR ACTIVE. HAZARD ZONE BELOW"</figcaption>
   </figure>
 </div>
-<p>
-  最终打磨的重点是把抽象的 Gamma blockout 变成一座可信的"高科技数据中心"：
-  用蓝色瓷砖、工业混凝土等不同材质区分可玩区域，并在垂直攀爬井中加入一根巨大的中央立柱结构，
-  让空间在现实中站得住脚。
-</p>
-<p>
-  <b>最关键的设计决定</b>是<b>把有叙事含义的 AR 引导文字直接做进环境</b>。
-  像 "Warning: Automated security on patrol"、"INCINERATOR ACTIVE. HAZARD ZONE BELOW"
-  这样的句子，同时完成了三件事：教会玩家机制（避开守卫、算准跳跃时机）、
-  强化潜入叙事，而且完全不打破沉浸——比弹窗教程有效得多。
-</p>
   </div>
 </section>
 <section class="section" id="takeaways">
