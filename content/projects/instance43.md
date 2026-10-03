@@ -2,14 +2,14 @@
 slug: instance43
 title: INSTANCE 43
 subtitle: 把"针织"做成一套要管理空间位置的核心战斗循环
-summary: 独立完成的 2D 俯视角动作 Demo。我主导角色战斗系统设计——攻击逻辑、技能槽位、成长天赋树，以及多套差异化敌人 AI 行为——并在 Unity 中用可运行原型验证每一个设计判断。核心机制是把一次攻击拆成"部署 + 回收"两个阶段，让玩家持续管理战场上的锚点位置。
+summary: 独立完成的 2D 俯视角动作 Demo。我主导角色战斗系统设计——攻击逻辑、技能槽位、成长天赋树，以及多套差异化敌人 AI 行为——并用可运行原型验证每一个设计判断。核心机制是把一次攻击拆成"部署 + 回收"两个阶段，让玩家持续管理战场上的锚点位置。
 year: "2026"
 type: 2D 俯视角动作 · 战斗系统策划
-role: 战斗系统设计 / 玩法原型 / 内容实现（独立完成）
+role: 战斗系统设计 / 玩法原型 / 问题诊断（个人项目，程序由 AI 辅助实现）
 team: 个人项目
 duration: 2026（仓库提交记录 07-18 → 09-13）
 engine: Unity 2D + C#
-status: 可运行 Demo，已在 itch.io 发布可玩版本，代码开源
+status: 可运行 Demo，已在 itch.io 发布可玩版本；程序由 AI 辅助实现，代码开源
 tags: ["Unity", "战斗系统", "系统策划", "敌人 AI", "成长树", "个人项目"]
 cover: assets/img/instance43/cover.jpg
 thumb: assets/img/instance43/cover.thumb.jpg
@@ -19,8 +19,9 @@ order: 2
 
 <section id="overview" title="项目概述" kicker="Overview">
 <p>
-  INSTANCE 43 是我独立完成的 2D 俯视角动作 Demo，覆盖从玩法原型到系统设计的完整流程。
-  开发过程中我用 Codex 与 PixelLab 作为辅助工具，专注在<b>玩法原型构建、系统设计与内容实现</b>上。
+  INSTANCE 43 是我独立完成的 2D 俯视角动作 Demo。
+  <b>玩法原型、系统设计与问题诊断由我完成；程序实现由 Codex 辅助生成，美术素材由 PixelLab 辅助生成。</b>
+  我的工作方式是：把一个设计问题拆成可验证的判断，交给 AI 实现，再用 playtest 与实机表现来检验它是否成立。
 </p>
 <p>
   我最主要的自选命题是：<b>怎样让"角色差异"变成玩家每一局都要重新计算的空间决策</b>，
@@ -284,20 +285,15 @@ order: 2
   所以不能去调点击灵敏度，必须从输入分发层解决。
 </p>
 <p>
-  <b>改动</b>：对话开始时把游戏状态切到 <code>Transition</code>，战斗逻辑直接返回；
-  同时记住这次按压属于 UI，避免对话结束后残留的"按住"被读成持续开火。
+  <b>我提出的方案</b>：分三层切断这次耦合 ——
+  ① 对话开始时锁定战斗输入；② 记住这次按压属于 UI，
+  避免对话结束后残留的"按住"被读成持续开火；
+  ③ 也是最关键的一步，<b>把回收改成独立输入</b>：不是让自动回收慢一点，
+  而是让松开左键在机制上不再能触发回收，玩家重新拿回"什么时候收"的决定权。
 </p>
-<pre><code>// PlayerShooting.Update：非 Gameplay 状态直接停机
-if (GameManager.Instance.CurrentState != GameManager.GameState.Gameplay) return;
-
-// 该次按压属于 UI，不应在战斗恢复后被解读为攻击
-suppressFireUntilRelease = true;</code></pre>
-<p>
-  最关键的一步是把<b>回收改成独立输入</b> —— 不是让自动回收慢一点，
-  而是从输入映射层取消它的可能：松开左键不再能触发回收，玩家重新拿回"什么时候收"的决定权。
+<p class="dim">
+  三处改动均由 Codex 实现。我负责定义"要解决什么"与验收结果。
 </p>
-<pre><code>// 松开左键永远不会消耗玩家已部署的针
-public static bool RecallPressed =&gt; Mouse.current.rightButton.wasPressedThisFrame;</code></pre>
 
 <h3>2 · 升级打断了战斗</h3>
 <p class="dim">
@@ -311,9 +307,9 @@ public static bool RecallPressed =&gt; Mouse.current.rightButton.wasPressedThisF
   升级<b>在战斗中间强制弹出</b>，玩家在最需要连续操作时被打断。
 </p>
 <p>
-  <b>改动</b>：升级改为<b>玩家主动开启</b>。可用时给特效与常驻提示，按 <code>R</code> 才打开。
+  <b>我提出的方案</b>：把升级从"战斗中强制弹出"改为<b>玩家主动开启</b> ——
+  可用时给特效与常驻提示，由玩家按键决定何时打开面板。
 </p>
-<pre><code>public static bool UpgradePanelHeld =&gt; Keyboard.current.rKey.isPressed;</code></pre>
 <p>
   这一个改动同时解决三件事：误触发消失（也就解决了问题 1 里 A 的那一半）、
   节奏回到玩家手里、玩家可以看清局势再决定拿哪个升级。
@@ -332,7 +328,7 @@ public static bool RecallPressed =&gt; Mouse.current.rightButton.wasPressedThisF
   <b>术语不是文案问题，是玩法理解的入口</b>；而 B 说明这个入口连读一遍的机会都没有。
 </p>
 <p>
-  <b>改动</b>：新增<b>资料库系统</b>，可检索系统说明与机体档案，按类别浏览。
+  <b>我提出的方案</b>：新增<b>资料库系统</b>，可检索系统说明与机体档案，按类别浏览。
   把术语解释从一次性教学变成随时可查的参考。
 </p>
 
@@ -367,11 +363,15 @@ public static bool RecallPressed =&gt; Mouse.current.rightButton.wasPressedThisF
   这条经验后来在我做射击游戏的受击反馈与弹药 UI 时同样适用。
 </p>
 
-<h3>独立完成整条链路的价值</h3>
+<h3>用 AI 把设计做实，需要的是"知道该改什么"</h3>
 <p>
-  从玩法原型、系统设计到内容实现都由我一个人走完，最大的收获是
-  <b>能在设计阶段就判断"这个方案做起来要多久"</b>。
-  比如针织的部署 / 回收两阶段，如果回收需要额外的轨迹物理模拟，
-  成本会明显高于"沿原轨迹返回"——这种判断在只写文档时是得不出来的。
+  这个项目的程序由 AI 辅助实现，所以我的产出集中在<b>判断</b>上：
+  把 playtest 的抱怨翻译成具体的技术问题、判断根因在哪一层、决定方案，
+  再检验结果是否符合设计意图。
+</p>
+<p>
+  这让我意识到，<b>"知道该改什么"和"会写代码"是两种不同的能力</b>。
+  比如针织的部署 / 回收两阶段，我需要判断的是"回收应当由谁决定、在哪一刻生效"，
+  而不是它该用哪种物理实现——后者可以交给 AI，前者不行。
 </p>
 </section>

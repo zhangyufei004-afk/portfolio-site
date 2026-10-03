@@ -69,7 +69,7 @@ body_class: page-about
   <div class="exp">
     <div class="exp__head">
       <h3>《INSTANCE 43》 · Unity 2D 俯视角动作 Demo</h3>
-      <span class="exp__meta">个人项目 · 2026 · 独立完成全流程 · 战斗系统策划 / 玩法原型 / 内容实现</span>
+      <span class="exp__meta">个人项目 · 2026 · 战斗系统策划 / 玩法原型 / 问题诊断（程序由 AI 辅助实现）</span>
     </div>
     <ul>
       <li>
@@ -80,11 +80,12 @@ body_class: page-about
         <b>敌人 AI 设计</b>：设计多套差异化的敌人 AI 行为逻辑，在同一套行为框架下产出多个变体与攻击表现。
       </li>
       <li>
-        <b>系统与界面</b>：设计并实现实时战斗 HUD（生命 / 能量 / 技能槽位 / 目标提示）、
-        技能配置界面、成长树与层间奖励路线选择，以及叙事对话流程。
+        <b>系统与界面</b>：设计实时战斗 HUD（生命 / 能量 / 技能槽位 / 目标提示）、
+        技能配置界面、成长树与层间奖励路线选择，以及叙事对话流程，并逐项验收实现结果。
       </li>
       <li>
-        <b>独立开发</b>：独立完成 2D 俯视角动作 Demo 的全流程开发，使用 Codex 与 PixelLab 作为辅助工具。
+        <b>AI 辅助实现</b>：程序由 Codex 生成、美术素材由 PixelLab 生成。
+我的产出集中在<b>判断</b>上 —— 把 playtest 的抱怨翻译成具体问题、判断根因层级、决定方案并验收结果。
       </li>
     </ul>
     <p class="exp__link">
