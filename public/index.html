@@ -40,16 +40,14 @@
   <div class="wrap">
     <p class="hero__eyebrow">游戏程序 · 关卡设计 · AI 系统</p>
     <h1 class="hero__title">游戏设计 / 关卡设计 / AI 系统</h1>
-    <p class="hero__lead">我是张宇飞，坎特伯雷大学游戏设计专业学生。我习惯把"设计意图"拆成可验证的系统——AI 状态机、关卡节奏、玩家引导——然后用 playtest 数据一轮轮把它逼到能成立。</p>
+    <p class="hero__lead">我是张宇飞，坎特伯雷大学游戏设计专业学生。我习惯把"设计意图"拆成可验证的系统——AI 状态机、关卡节奏、玩家引导——再用 playtest 把它逼到成立。</p>
   </div>
 </header>
 <div class="wrap">
 <section class="section section--plain">
   <p class="lede">
-    这里收录了九个项目。有独立完成的动作 Demo（INSTANCE 43）与四个单人关卡设计项目：从 Unity 里的潜行恐怖 AI（ECHOES），
-    到 Unreal 的潜入关卡、Portal 2 解谜测试室、以及塞尔达式 2D 地牢；
-    也有三段六人团队协作经历（Bounty Hunter、Stormhaven、Cozy Fishing）与一个 VR 密室逃脱项目。
-    每个页面都保留了每一轮 playtest 的反馈和对应的修改——因为那些修改才是真正的设计工作。
+    九个项目，其中五个由我独立完成：两个可玩 Demo、四个单人关卡、三段六人团队协作。
+    每个页面都留有 playtest 反馈与对应的修改——那些修改才是真正的设计工作。
   </p>
   <div class="stats">
     <div class="stat"><span class="stat__num">9</span><span class="stat__label">个已归档项目</span></div>
@@ -75,8 +73,7 @@
         <p class="card__meta">2026 · 潜行恐怖 / AI</p>
         <h3 class="card__title">ECHOES</h3>
         <p class="card__summary">
-          在漆黑迷宫里被一只对光和声音有反应的怪物追杀。核心是一套 Patrol / Suspicious / Chase / Attack 有限状态机，
-          配合 NavMesh 寻路与躲藏机制。
+          漆黑迷宫里，一只对光和声音有反应的怪物在追杀你。核心是四状态有限状态机 + NavMesh 寻路 + 躲藏机制。
         </p>
         <div class="card__tags">
           <span class="tag tag--sm">Unity</span>
@@ -95,8 +92,7 @@
         <p class="card__meta">2026 · 关卡设计 / 潜入</p>
         <h3 class="card__title">ALS 潜入关卡「Infiltration」</h3>
         <p class="card__summary">
-          Unreal Engine 5 + ALS 运动系统。垂直攀爬潜入 → 服务器房潜行 → 触发警报后限时逃离，
-          并用"能量弓按钮链"把机制做出新用法。
+          UE5 + ALS 运动系统。垂直攀爬潜入 → 服务器房潜行 → 触发警报后限时逃离。
         </p>
         <div class="card__tags">
           <span class="tag tag--sm">Unreal Engine 5</span>
@@ -111,11 +107,10 @@
         <img src="assets/img/stormhaven/vista-spline.thumb.jpg" alt="Stormhaven 的 Vista Actor 与 spline 路径" loading="lazy" decoding="async">
       </div>
       <div class="card__body">
-        <p class="card__meta">2025 · 团队项目 / Unreal</p>
+        <p class="card__meta">2024 · 团队项目 / Unreal</p>
         <h3 class="card__title">Stormhaven</h3>
         <p class="card__summary">
-          六人团队、六周打磨期。为探索类原型补上 Vista 电影镜头与快速旅行网络，并扩展叙事。
-          我负责 FPS 系统强化：HUD 重设计、血腥屏、武器动画与敌人 AI。
+          六人团队的打磨期项目。我负责 FPS 系统强化：HUD 重设计、受击反馈、武器动画与敌人 AI。
         </p>
         <div class="card__tags">
           <span class="tag tag--sm">Unreal Engine</span>
@@ -128,36 +123,6 @@
 
   </div>
   <p class="morelink"><a href="works.html">查看全部 9 个项目 →</a></p>
-</section>
-
-<section class="section section--plain">
-  <header class="section__head">
-    <p class="section__kicker">我关注什么</p>
-    <h2 class="section__title">三条一直在重复的线索</h2>
-  </header>
-  <div class="grid grid--3">
-    <div class="pillar">
-      <h3>引导是设计责任，不是 UI 任务</h3>
-      <p>
-        2D 地牢的房间编号、Portal 2 的 antline、Unreal 关卡墙上的 AR 警示文字——
-        同一个问题在不同尺度上反复出现：玩家看不见你的意图，再好的机制也不成立。
-      </p>
-    </div>
-    <div class="pillar">
-      <h3>对抗"人为难度"</h3>
-      <p>
-        敌人堆砌、过窄的限时、过大的伤害判定盒，本质都是"惩罚代替设计"。
-        我的解法很一致：收紧约束、强化引导、重排节奏。
-      </p>
-    </div>
-    <div class="pillar">
-      <h3>系统的鲁棒性优先于复杂度</h3>
-      <p>
-        一次卡死足以毁掉整段体验，一次偷懒的合并请求足以拖垮整个流程。
-        我习惯先把"安全网"做出来，再叠加创意。
-      </p>
-    </div>
-  </div>
 </section>
 
 </div>
