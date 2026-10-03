@@ -236,8 +236,12 @@ def render_project(meta: dict, body: str) -> str:
     for sec in sections:
         inner = slugify_anchors(sec["body"], seen)
         inner = apply_prefix(inner, BASE_CTX.get("prefix", ""))
+        # kicker 与 title 都按"已转义的 HTML 片段"对待，不再二次转义。
+        # 源文件里写 &amp;（HTML 实体），若这里再 escape 一次会变成 &amp;amp;，
+        # 浏览器就会把 "&amp;" 当成纯文本显示出来（它不会二次解码）。
+        # title 走 path 参数插入，同样保持原样。
         kicker = (
-            '<p class="section__kicker">%s</p>' % html.escape(sec["kicker"])
+            '<p class="section__kicker">%s</p>' % sec["kicker"]
             if sec.get("kicker")
             else ""
         )

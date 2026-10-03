@@ -101,6 +101,40 @@ code {
   padding: 0.1em 0.4em;
 }
 
+/* 多行代码块（作品集里展示关键实现片段） */
+pre {
+  margin: 1.4em 0;
+  padding: 14px 16px;
+  background: #12161d;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  display: block;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 0.84em;
+  line-height: 1.62;
+  color: #cfd8e3;
+  white-space: pre;
+  tab-size: 2;
+}
+
+@media (max-width: 720px) {
+  pre {
+    padding: 12px 13px;
+    font-size: 0.95em;
+  }
+  pre code {
+    font-size: 0.78em;
+  }
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--line);

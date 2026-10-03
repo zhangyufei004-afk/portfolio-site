@@ -263,6 +263,157 @@
 </div>
   </div>
 </section>
+<section class="section" id="playtest">
+  <header class="section__head"><p class="section__kicker">Playtest &amp; Iteration</p><h2 class="section__title">Playtest 与迭代</h2></header>
+  <div class="section__body">
+<p>
+  第一次可玩版本发布后，我组织了<b>一轮 playtest，两位测试者</b>。
+  两人的关注点几乎不重叠，恰好构成了两个互补的视角：
+  一位从<b>体验层</b>出发（玩家怎么学会玩），另一位从<b>机制层</b>出发（系统哪里坏了）。
+</p>
+<p>
+  下面记录的三个问题，都是<b>两人各自独立提出</b>的 —— 四条不同的人在不同方向上撞到同一批问题，
+  这让我不必去猜"是不是个别玩家的口味"。
+</p>
+
+<h3 id="问题-1--一次点击被拆成了两个动作">问题 1 · 一次点击被拆成了两个动作</h3>
+<p>
+  <b>测试者 B</b>：「Whenever I clicked with the mouse it would make 2 clicks,
+  skipping dialogues and <b>instantaneously retracting the needles</b>」
+</p>
+<p>
+  <b>测试者 A</b>：「an upgrade screen appeared while I was actively fighting.
+  I pressed a number key intending to activate one of my abilities,
+  but <b>that input immediately selected an upgrade instead</b>」
+</p>
+<p>
+  <b>看起来是两件事，实际上是同一个根因：UI 层与战斗层都在监听同一次输入。</b>
+</p>
+<p>
+  <b>我的判断</b>：B 描述的不是"手感差"，而是<b>核心机制的决策权被拿走了</b> ——
+  针本该由玩家主动决定何时回收，被自动回收等于这个决策消失了。
+  这比"点击太灵敏"严重得多，所以不能去调灵敏度，必须从输入分发层解决。
+</p>
+<p>
+  <b>改动</b>：从三个层面切断这次耦合。
+</p>
+<p>
+  ① <b>对话期间锁定战斗输入</b> —— 对话开始时把游戏状态切到 <code>Transition</code>，
+  战斗逻辑在主循环里直接返回：
+</p>
+<pre><code>// PlayerShooting.Update
+if (GameManager.Instance != null
+    &amp;&amp; GameManager.Instance.CurrentState != GameManager.GameState.Gameplay) return;
+</code></pre>
+<p>
+  ② <b>处理"按键残留"</b> —— 锁了输入还有一个隐蔽问题：玩家点击时可能<b>还按着鼠标</b>，
+  对话结束后战斗恢复，这个"按住"会被读成持续开火。必须记住这次按压属于 UI，而不是攻击：
+</p>
+<pre><code>// A mouse click can open/advance a modal presentation. Do not
+// let the corresponding release be interpreted as an attack
+// release when gameplay resumes on the reused player object.
+suppressFireUntilRelease = true;
+</code></pre>
+<p>
+  ③ <b>把"回收"改成独立输入</b> —— 这是最关键的一步。
+  我没有让自动回收"慢一点"，而是<b>从输入映射层取消了它的可能</b>：
+</p>
+<pre><code>/// Explicit N-17 recall input. The primary attack is intentionally kept
+/// independent from recall so releasing LMB never consumes the player's
+/// planted Needle field.
+public static bool RecallPressed =&gt; ...
+    (Mouse.current.rightButton.wasPressedThisFrame) ...
+</code></pre>
+<pre><code>// Recall is deliberately a separate, explicit input. Releasing the
+// primary attack never recalls the deployed anchors, which lets the
+// player build a field and choose the exact payoff moment.
+if (GameInput.RecallPressed) RecallAllNeedles(...);
+</code></pre>
+<p>
+  <b>结果</b>：松开左键在物理上不再能触发回收。
+  玩家重新获得"什么时候收"的决定权 —— 这正是这个角色的核心决策。
+</p>
+
+<h3 id="问题-2--升级打断了战斗两人从不同角度命中">问题 2 · 升级打断了战斗（两人从不同角度命中）</h3>
+<p>
+  <b>测试者 A</b>：「it felt like <b>I was spending most of my time selecting upgrades
+  with only a few seconds of actual combat between them</b>」
+</p>
+<p>
+  <b>测试者 B</b>：「The upgrade cards at the start didn't have too much effect and
+  at the end just demolished everything... it was a <b>jump in power</b>」
+</p>
+<p>
+  <b>我的判断</b>：A 说的是<b>频率</b>（太密），B 说的是<b>幅度</b>（断层）。
+  两个症状看起来不同，但根因是同一个 —— 升级<b>在战斗中间强制弹出</b>，
+  于是玩家在最需要连续操作的时候被打断，而每次打断又都得做一次影响 build 的决定。
+</p>
+<p>
+  <b>改动</b>：把升级从"战斗中强制弹出"改为<b>玩家主动开启</b>。
+  升级可用时播放特效提示，并常驻一个面板告知"你有一个可用的升级，按 R 打开"：
+</p>
+<pre><code>/// The upgrade modal is deliberately opt-in: R is held while the player
+/// is in gameplay and a pending level-up choice exists.
+public static bool UpgradePanelHeld =&gt; Keyboard.current != null &amp;&amp; Keyboard.current.rKey.isPressed;
+</code></pre>
+<p>
+  <b>这一个改动同时解决了三件事</b>：
+</p>
+<ul>
+  <li>误触发消失了 —— 升级不再自动抢走战斗输入（解决问题 1 里的 A 那一半）</li>
+  <li>节奏回到玩家手里 —— 什么时候选升级由玩家决定，战斗不再被打断</li>
+  <li>选择质量提高 —— 玩家可以打完一波、看清局势再决定拿哪个升级</li>
+</ul>
+<p>
+  同时它也是问题 3 的一部分答案：升级不再一闪而过，而是<b>等玩家来处理</b>。
+</p>
+
+<h3 id="问题-3--术语没有任何解释">问题 3 · 术语没有任何解释</h3>
+<p>
+  <b>测试者 A</b>：「many important terms and mechanics are introduced
+  <b>without explanation</b>, such as Integrity, Natites, Anchors...
+  especially at the beginning <b>I was choosing upgrades without properly
+  understanding what they would actually do</b>」
+</p>
+<p>
+  <b>测试者 B</b>：「Pop up with level information is <b>too fast to go out the screen</b>,
+  the first 15 minutes I ended up <b>going blindly</b>」
+</p>
+<p>
+  <b>我的判断</b>：A 描述的是一个<b>恶性循环</b> ——
+  术语没解释 → 看不懂升级 → 只能瞎选 → 无法建立 build 预期 → 更加看不懂。
+  <b>术语不是文案问题，是玩法理解的入口。</b>
+  而 B 的补充说明这个入口连"读一遍"的机会都没有。
+</p>
+<p>
+  <b>改动</b>：新增<b>资料库（Database）系统</b> ——
+  玩家可随时检索系统说明与机体档案，按类别浏览，并配合关键词搜索。
+  把"术语解释"从一次性的教学，变成<b>随时可查的参考</b>。
+</p>
+
+<h3 id="过程复盘这一轮教了我什么">过程复盘：这一轮教了我什么</h3>
+<p>
+  <b>一、根因比症状值钱。</b> 两份反馈里的点击问题，表现为"误选升级"和"双击"两件不同的事，
+  实际是同一个根因。分别去修症状会留下第三种触发方式。
+</p>
+<p>
+  <b>二、"两人独立命中"是最高优先级的信号。</b>
+  一个人说可能是口味，两个人从不同方向撞到同一处，那就是真的坏了。
+  我按这个标准排了优先级，而不是按"哪条最吵"。
+</p>
+<p>
+  <b>三、玩家给的不只是问题，还有答案。</b>
+  测试者 B 在抱怨路线选择时补了一句"唯一有意义的是那条能聚焦 build 的路线" ——
+  这句话直接指出了我该往哪个方向改：路线的差异化在"内容类型"上是有效的，
+  在"风险量级"上是失效的。听问题容易，听出答案需要再想一层。
+</p>
+<p>
+  <b>四、没验证的修复不等于修复。</b> 这一轮的所有改动都<b>没有再组织第二轮 playtest</b>。
+  改动本身有明确的设计依据，但它们<b>是否真的解决了问题，目前仍是未验证的假设</b>。
+  下一步该做的是回归测试，而不是继续加内容。
+</p>
+  </div>
+</section>
 <section class="section" id="takeaways">
   <header class="section__head"><p class="section__kicker">Takeaways</p><h2 class="section__title">反思</h2></header>
   <div class="section__body">
@@ -304,6 +455,7 @@
         <li><a href="#attack">普通攻击：部署与回收的双阶段输入</a></li>
         <li><a href="#ui">战斗 UI 与信息层级</a></li>
         <li><a href="#meta">成长树与路线选择</a></li>
+        <li><a href="#playtest">Playtest 与迭代</a></li>
         <li><a href="#takeaways">反思</a></li>
     </ol>
   </nav>

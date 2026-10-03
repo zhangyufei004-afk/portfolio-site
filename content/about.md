@@ -6,8 +6,6 @@ body_class: page-about
 <section class="section section--plain">
   <p class="lede">
     我是张宇飞（Yufei Zhang），坎特伯雷大学产品设计学院应用沉浸式游戏设计专业本科生。
-    我的工作方式偏向"先把机制跑通，再用 playtest 把它磨成立"——
-    我不太相信还没被测试过的设计判断，也不太相信只靠调参数就能救回来的关卡结构。
   </p>
   <p>
     我希望以<b>游戏策划</b>身份参与系统、玩法与战斗体验的设计，并利用 Unity / C# 的实现能力
